@@ -44,7 +44,6 @@ void MainWindow::on_audioButton_clicked() {
 
     qDebug() << "on_audioButton_clicked" << QThread::currentThread();
 
-    return;
     // 获取输入格式对象
     AVInputFormat *fmt = av_find_input_format(FMT_NAME);
     if (!fmt) {

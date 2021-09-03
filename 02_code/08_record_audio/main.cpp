@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QThread>
 
+
 extern "C" {
 // 设备
 #include <libavdevice/avdevice.h>
@@ -12,7 +13,6 @@ extern "C" {
 
 void log() {
     // C语言
-    printf("printf----");
 
     // C++
     std::cout << "std::cout----";
@@ -28,8 +28,8 @@ void log() {
     // TRACE < DEBUG < INFO < WARNING < ERROR < FATAL < QUIET
 
     // 刷新标准输出流
-    fflush(stdout);
-    fflush(stderr);
+//    fflush(stdout);
+//    fflush(stderr);
 
     qDebug() << "qDebug----";
 }

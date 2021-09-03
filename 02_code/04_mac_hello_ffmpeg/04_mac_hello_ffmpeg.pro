@@ -59,7 +59,7 @@ linux: {
 #        -lavresample
 
 mac: {
-    FFMPEG_HOME = /usr/local/Cellar/ffmpeg/4.3.2
+    FFMPEG_HOME = /usr/local/Cellar/ffmpeg/4.4_2
 
     INCLUDEPATH += $${FFMPEG_HOME}/include
     LIBS += -L $${FFMPEG_HOME}/lib \
