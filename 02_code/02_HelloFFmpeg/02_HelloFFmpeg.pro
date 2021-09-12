@@ -37,12 +37,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 # 设置FFmpeg头文件的位置，以便Qt能够找到它们
-INCLUDEPATH += ../include
+INCLUDEPATH += ../../4.4_2/include
 #INCLUDEPATH += F:/Dev/ffmpeg-4.3.2/include
 
 # 设置FFmpeg导入库的位置
 #LIBS += -L F:/Dev/ffmpeg-4.3.2/lib \
-LIBS += -L ../lib \
+LIBS += -L ../../4.4_2/lib \
         -lavcodec \
         -lavdevice \
         -lavfilter \
