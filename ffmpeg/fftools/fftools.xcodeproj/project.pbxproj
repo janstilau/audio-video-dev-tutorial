@@ -1,0 +1,157 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		06CE409C26EE17B700F6E203 /* cmdutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cmdutils.h; sourceTree = "<group>"; };
+		06CE409D26EE17B700F6E203 /* ffmpeg_opt.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ffmpeg_opt.c; sourceTree = "<group>"; };
+		06CE409E26EE17B700F6E203 /* ffmpeg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ffmpeg.h; sourceTree = "<group>"; };
+		06CE409F26EE17B700F6E203 /* ffplay.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ffplay.c; sourceTree = "<group>"; };
+		06CE40A026EE17B700F6E203 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		06CE40A126EE17B700F6E203 /* ffmpeg_filter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ffmpeg_filter.c; sourceTree = "<group>"; };
+		06CE40A226EE17B700F6E203 /* ffmpeg_hw.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ffmpeg_hw.c; sourceTree = "<group>"; };
+		06CE40A326EE17B700F6E203 /* ffprobe.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ffprobe.c; sourceTree = "<group>"; };
+		06CE40A426EE17B700F6E203 /* cmdutils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cmdutils.c; sourceTree = "<group>"; };
+		06CE40A526EE17B700F6E203 /* ffmpeg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ffmpeg.c; sourceTree = "<group>"; };
+		06CE40A626EE17B700F6E203 /* ffmpeg_videotoolbox.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ffmpeg_videotoolbox.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06CE409626EE17B700F6E203 = {
+			isa = PBXGroup;
+			children = (
+				06CE409C26EE17B700F6E203 /* cmdutils.h */,
+				06CE409D26EE17B700F6E203 /* ffmpeg_opt.c */,
+				06CE409E26EE17B700F6E203 /* ffmpeg.h */,
+				06CE409F26EE17B700F6E203 /* ffplay.c */,
+				06CE40A026EE17B700F6E203 /* Makefile */,
+				06CE40A126EE17B700F6E203 /* ffmpeg_filter.c */,
+				06CE40A226EE17B700F6E203 /* ffmpeg_hw.c */,
+				06CE40A326EE17B700F6E203 /* ffprobe.c */,
+				06CE40A426EE17B700F6E203 /* cmdutils.c */,
+				06CE40A526EE17B700F6E203 /* ffmpeg.c */,
+				06CE40A626EE17B700F6E203 /* ffmpeg_videotoolbox.c */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		06CE409B26EE17B700F6E203 /* fftools */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 06CE40A726EE17B700F6E203 /* Build configuration list for PBXLegacyTarget "fftools" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/justinlau/audio-video-dev-tutorial/ffmpeg/fftools";
+			dependencies = (
+			);
+			name = fftools;
+			passBuildSettingsInEnvironment = 1;
+			productName = fftools;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		06CE409726EE17B700F6E203 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 06CE409A26EE17B700F6E203 /* Build configuration list for PBXProject "fftools" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06CE409626EE17B700F6E203;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06CE409B26EE17B700F6E203 /* fftools */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		06CE409826EE17B700F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		06CE409926EE17B700F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		06CE40A826EE17B700F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = fftools;
+			};
+			name = Debug;
+		};
+		06CE40A926EE17B700F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = fftools;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06CE409A26EE17B700F6E203 /* Build configuration list for PBXProject "fftools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE409826EE17B700F6E203 /* Debug */,
+				06CE409926EE17B700F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06CE40A726EE17B700F6E203 /* Build configuration list for PBXLegacyTarget "fftools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE40A826EE17B700F6E203 /* Debug */,
+				06CE40A926EE17B700F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06CE409726EE17B700F6E203 /* Project object */;
+}

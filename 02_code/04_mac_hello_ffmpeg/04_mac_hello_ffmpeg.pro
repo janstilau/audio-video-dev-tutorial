@@ -59,8 +59,10 @@ linux: {
 #        -lavresample
 
 mac: {
-    FFMPEG_HOME = /usr/local/Cellar/ffmpeg/4.4_2
-
+    FFMPEG_HOME = /usr/local/Cellar/ffmpeg/4.3.2_4
+# 默认是链接动态库. 如果想要链接静态库, 写 static
+# 不过, 这都太恶心了, 写死路径自然而然就可以了.
+# 写死路径, 就不用 -L -l 这种写法了.
     INCLUDEPATH += $${FFMPEG_HOME}/include
     LIBS += -L $${FFMPEG_HOME}/lib \
             -lavcodec \

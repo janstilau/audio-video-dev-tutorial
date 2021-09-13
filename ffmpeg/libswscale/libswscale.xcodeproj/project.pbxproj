@@ -1,0 +1,193 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		06CE3B4226EE171D00F6E203 /* swscale.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = swscale.c; sourceTree = "<group>"; };
+		06CE3B4326EE171D00F6E203 /* version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		06CE3B4426EE171D00F6E203 /* gamma.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gamma.c; sourceTree = "<group>"; };
+		06CE3B4526EE171D00F6E203 /* yuv2rgb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv2rgb.c; sourceTree = "<group>"; };
+		06CE3B4626EE171D00F6E203 /* libswscale.v */ = {isa = PBXFileReference; lastKnownFileType = text; path = libswscale.v; sourceTree = "<group>"; };
+		06CE3B4726EE171D00F6E203 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		06CE3B4826EE171D00F6E203 /* rgb2rgb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rgb2rgb.h; sourceTree = "<group>"; };
+		06CE3B4926EE171D00F6E203 /* log2_tab.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = log2_tab.c; sourceTree = "<group>"; };
+		06CE3B4A26EE171D00F6E203 /* alphablend.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = alphablend.c; sourceTree = "<group>"; };
+		06CE3B4B26EE171D00F6E203 /* ppc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ppc; sourceTree = "<group>"; };
+		06CE3B4C26EE171D00F6E203 /* swscale_unscaled.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = swscale_unscaled.c; sourceTree = "<group>"; };
+		06CE3B4D26EE171D00F6E203 /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tests; sourceTree = "<group>"; };
+		06CE3B4E26EE171D00F6E203 /* bayer_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bayer_template.c; sourceTree = "<group>"; };
+		06CE3B4F26EE171D00F6E203 /* swscale_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swscale_internal.h; sourceTree = "<group>"; };
+		06CE3B5026EE171D00F6E203 /* input.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = input.c; sourceTree = "<group>"; };
+		06CE3B5126EE171D00F6E203 /* utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		06CE3B5226EE171D00F6E203 /* rgb2rgb_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rgb2rgb_template.c; sourceTree = "<group>"; };
+		06CE3B5326EE171D00F6E203 /* swscale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swscale.h; sourceTree = "<group>"; };
+		06CE3B5426EE171D00F6E203 /* x86 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = x86; sourceTree = "<group>"; };
+		06CE3B5526EE171D00F6E203 /* hscale_fast_bilinear.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hscale_fast_bilinear.c; sourceTree = "<group>"; };
+		06CE3B5626EE171D00F6E203 /* hscale.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hscale.c; sourceTree = "<group>"; };
+		06CE3B5726EE171D00F6E203 /* slice.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = slice.c; sourceTree = "<group>"; };
+		06CE3B5826EE171D00F6E203 /* arm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = arm; sourceTree = "<group>"; };
+		06CE3B5926EE171D00F6E203 /* rgb2rgb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rgb2rgb.c; sourceTree = "<group>"; };
+		06CE3B5A26EE171D00F6E203 /* aarch64 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = aarch64; sourceTree = "<group>"; };
+		06CE3B5B26EE171D00F6E203 /* vscale.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vscale.c; sourceTree = "<group>"; };
+		06CE3B5C26EE171D00F6E203 /* swscaleres.rc */ = {isa = PBXFileReference; lastKnownFileType = text; path = swscaleres.rc; sourceTree = "<group>"; };
+		06CE3B5D26EE171D00F6E203 /* output.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = output.c; sourceTree = "<group>"; };
+		06CE3B5E26EE171D00F6E203 /* options.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = options.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06CE3B3C26EE171D00F6E203 = {
+			isa = PBXGroup;
+			children = (
+				06CE3B4226EE171D00F6E203 /* swscale.c */,
+				06CE3B4326EE171D00F6E203 /* version.h */,
+				06CE3B4426EE171D00F6E203 /* gamma.c */,
+				06CE3B4526EE171D00F6E203 /* yuv2rgb.c */,
+				06CE3B4626EE171D00F6E203 /* libswscale.v */,
+				06CE3B4726EE171D00F6E203 /* Makefile */,
+				06CE3B4826EE171D00F6E203 /* rgb2rgb.h */,
+				06CE3B4926EE171D00F6E203 /* log2_tab.c */,
+				06CE3B4A26EE171D00F6E203 /* alphablend.c */,
+				06CE3B4B26EE171D00F6E203 /* ppc */,
+				06CE3B4C26EE171D00F6E203 /* swscale_unscaled.c */,
+				06CE3B4D26EE171D00F6E203 /* tests */,
+				06CE3B4E26EE171D00F6E203 /* bayer_template.c */,
+				06CE3B4F26EE171D00F6E203 /* swscale_internal.h */,
+				06CE3B5026EE171D00F6E203 /* input.c */,
+				06CE3B5126EE171D00F6E203 /* utils.c */,
+				06CE3B5226EE171D00F6E203 /* rgb2rgb_template.c */,
+				06CE3B5326EE171D00F6E203 /* swscale.h */,
+				06CE3B5426EE171D00F6E203 /* x86 */,
+				06CE3B5526EE171D00F6E203 /* hscale_fast_bilinear.c */,
+				06CE3B5626EE171D00F6E203 /* hscale.c */,
+				06CE3B5726EE171D00F6E203 /* slice.c */,
+				06CE3B5826EE171D00F6E203 /* arm */,
+				06CE3B5926EE171D00F6E203 /* rgb2rgb.c */,
+				06CE3B5A26EE171D00F6E203 /* aarch64 */,
+				06CE3B5B26EE171D00F6E203 /* vscale.c */,
+				06CE3B5C26EE171D00F6E203 /* swscaleres.rc */,
+				06CE3B5D26EE171D00F6E203 /* output.c */,
+				06CE3B5E26EE171D00F6E203 /* options.c */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		06CE3B4126EE171D00F6E203 /* libswscale */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 06CE3B5F26EE171D00F6E203 /* Build configuration list for PBXLegacyTarget "libswscale" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/justinlau/audio-video-dev-tutorial/ffmpeg/libswscale";
+			dependencies = (
+			);
+			name = libswscale;
+			passBuildSettingsInEnvironment = 1;
+			productName = libswscale;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		06CE3B3D26EE171D00F6E203 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 06CE3B4026EE171D00F6E203 /* Build configuration list for PBXProject "libswscale" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06CE3B3C26EE171D00F6E203;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06CE3B4126EE171D00F6E203 /* libswscale */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		06CE3B3E26EE171D00F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		06CE3B3F26EE171D00F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		06CE3B6026EE171D00F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libswscale;
+			};
+			name = Debug;
+		};
+		06CE3B6126EE171D00F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libswscale;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06CE3B4026EE171D00F6E203 /* Build configuration list for PBXProject "libswscale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE3B3E26EE171D00F6E203 /* Debug */,
+				06CE3B3F26EE171D00F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06CE3B5F26EE171D00F6E203 /* Build configuration list for PBXLegacyTarget "libswscale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE3B6026EE171D00F6E203 /* Debug */,
+				06CE3B6126EE171D00F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06CE3B3D26EE171D00F6E203 /* Project object */;
+}

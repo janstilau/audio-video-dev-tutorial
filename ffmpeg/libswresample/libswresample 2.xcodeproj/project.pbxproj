@@ -1,0 +1,202 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		06CE4CBD26EE17B800F6E203 /* libswresample.v */ = {isa = PBXFileReference; lastKnownFileType = text; path = libswresample.v; sourceTree = "<group>"; };
+		06CE4CBE26EE17B800F6E203 /* resample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = resample.h; sourceTree = "<group>"; };
+		06CE4CBF26EE17B800F6E203 /* rematrix.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rematrix.c; sourceTree = "<group>"; };
+		06CE4CC026EE17B800F6E203 /* resample_dsp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = resample_dsp.c; sourceTree = "<group>"; };
+		06CE4CC126EE17B800F6E203 /* version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		06CE4CC226EE17B800F6E203 /* rematrix_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rematrix_template.c; sourceTree = "<group>"; };
+		06CE4CC326EE17B800F6E203 /* resample_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = resample_template.c; sourceTree = "<group>"; };
+		06CE4CC426EE17B800F6E203 /* swresample_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swresample_internal.h; sourceTree = "<group>"; };
+		06CE4CC526EE17B800F6E203 /* audioconvert.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = audioconvert.c; sourceTree = "<group>"; };
+		06CE4CC626EE17B800F6E203 /* swresampleres.rc */ = {isa = PBXFileReference; lastKnownFileType = text; path = swresampleres.rc; sourceTree = "<group>"; };
+		06CE4CC726EE17B800F6E203 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		06CE4CC826EE17B800F6E203 /* log2_tab.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = log2_tab.c; sourceTree = "<group>"; };
+		06CE4CC926EE17B800F6E203 /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tests; sourceTree = "<group>"; };
+		06CE4CCA26EE17B800F6E203 /* libswresample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = libswresample.xcodeproj; sourceTree = "<group>"; };
+		06CE4CCD26EE17B800F6E203 /* dither_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dither_template.c; sourceTree = "<group>"; };
+		06CE4CCE26EE17B800F6E203 /* swresample.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = swresample.c; sourceTree = "<group>"; };
+		06CE4CCF26EE17B800F6E203 /* noise_shaping_data.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = noise_shaping_data.c; sourceTree = "<group>"; };
+		06CE4CD026EE17B800F6E203 /* resample.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = resample.c; sourceTree = "<group>"; };
+		06CE4CD126EE17B800F6E203 /* x86 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = x86; sourceTree = "<group>"; };
+		06CE4CD226EE17B800F6E203 /* audioconvert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = audioconvert.h; sourceTree = "<group>"; };
+		06CE4CD326EE17B800F6E203 /* dither.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dither.c; sourceTree = "<group>"; };
+		06CE4CD426EE17B800F6E203 /* arm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = arm; sourceTree = "<group>"; };
+		06CE4CD526EE17B800F6E203 /* aarch64 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = aarch64; sourceTree = "<group>"; };
+		06CE4CD626EE17B800F6E203 /* swresample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swresample.h; sourceTree = "<group>"; };
+		06CE4CD726EE17B800F6E203 /* swresample_frame.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = swresample_frame.c; sourceTree = "<group>"; };
+		06CE4CD826EE17B800F6E203 /* options.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = options.c; sourceTree = "<group>"; };
+		06CE4CD926EE17B800F6E203 /* soxr_resample.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = soxr_resample.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06CE4CB726EE17B800F6E203 = {
+			isa = PBXGroup;
+			children = (
+				06CE4CBD26EE17B800F6E203 /* libswresample.v */,
+				06CE4CBE26EE17B800F6E203 /* resample.h */,
+				06CE4CBF26EE17B800F6E203 /* rematrix.c */,
+				06CE4CC026EE17B800F6E203 /* resample_dsp.c */,
+				06CE4CC126EE17B800F6E203 /* version.h */,
+				06CE4CC226EE17B800F6E203 /* rematrix_template.c */,
+				06CE4CC326EE17B800F6E203 /* resample_template.c */,
+				06CE4CC426EE17B800F6E203 /* swresample_internal.h */,
+				06CE4CC526EE17B800F6E203 /* audioconvert.c */,
+				06CE4CC626EE17B800F6E203 /* swresampleres.rc */,
+				06CE4CC726EE17B800F6E203 /* Makefile */,
+				06CE4CC826EE17B800F6E203 /* log2_tab.c */,
+				06CE4CC926EE17B800F6E203 /* tests */,
+				06CE4CCA26EE17B800F6E203 /* libswresample.xcodeproj */,
+				06CE4CCD26EE17B800F6E203 /* dither_template.c */,
+				06CE4CCE26EE17B800F6E203 /* swresample.c */,
+				06CE4CCF26EE17B800F6E203 /* noise_shaping_data.c */,
+				06CE4CD026EE17B800F6E203 /* resample.c */,
+				06CE4CD126EE17B800F6E203 /* x86 */,
+				06CE4CD226EE17B800F6E203 /* audioconvert.h */,
+				06CE4CD326EE17B800F6E203 /* dither.c */,
+				06CE4CD426EE17B800F6E203 /* arm */,
+				06CE4CD526EE17B800F6E203 /* aarch64 */,
+				06CE4CD626EE17B800F6E203 /* swresample.h */,
+				06CE4CD726EE17B800F6E203 /* swresample_frame.c */,
+				06CE4CD826EE17B800F6E203 /* options.c */,
+				06CE4CD926EE17B800F6E203 /* soxr_resample.c */,
+			);
+			sourceTree = "<group>";
+		};
+		06CE4CCB26EE17B800F6E203 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		06CE4CBC26EE17B800F6E203 /* libswresample */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 06CE4CDB26EE17B800F6E203 /* Build configuration list for PBXLegacyTarget "libswresample" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/justinlau/audio-video-dev-tutorial/ffmpeg/libswresample";
+			dependencies = (
+			);
+			name = libswresample;
+			passBuildSettingsInEnvironment = 1;
+			productName = libswresample;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		06CE4CB826EE17B800F6E203 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 06CE4CBB26EE17B800F6E203 /* Build configuration list for PBXProject "libswresample 2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06CE4CB726EE17B800F6E203;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 06CE4CCB26EE17B800F6E203 /* Products */;
+					ProjectRef = 06CE4CCA26EE17B800F6E203 /* libswresample.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				06CE4CBC26EE17B800F6E203 /* libswresample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		06CE4CB926EE17B800F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		06CE4CBA26EE17B800F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		06CE4CDC26EE17B800F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libswresample;
+			};
+			name = Debug;
+		};
+		06CE4CDD26EE17B800F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libswresample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06CE4CBB26EE17B800F6E203 /* Build configuration list for PBXProject "libswresample 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE4CB926EE17B800F6E203 /* Debug */,
+				06CE4CBA26EE17B800F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06CE4CDB26EE17B800F6E203 /* Build configuration list for PBXLegacyTarget "libswresample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE4CDC26EE17B800F6E203 /* Debug */,
+				06CE4CDD26EE17B800F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06CE4CB826EE17B800F6E203 /* Project object */;
+}

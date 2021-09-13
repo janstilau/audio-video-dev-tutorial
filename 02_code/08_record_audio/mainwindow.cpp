@@ -24,7 +24,7 @@ extern "C" {
 #else
     #define FMT_NAME "avfoundation"
     #define DEVICE_NAME ":0"
-    #define FILENAME "/Users/mj/Desktop/out.pcm"
+    #define FILENAME "/Users/justinlau/audio-video-dev-tutorial/output/output.pcm"
 #endif
 
 MainWindow::MainWindow(QWidget *parent)

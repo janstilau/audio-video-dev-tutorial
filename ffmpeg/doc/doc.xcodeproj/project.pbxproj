@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		06CE404126EE17B700F6E203 /* libavcodec.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = libavcodec.texi; sourceTree = "<group>"; };
+		06CE404226EE17B700F6E203 /* bootstrap.min.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
+		06CE404326EE17B700F6E203 /* rate_distortion.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = rate_distortion.txt; sourceTree = "<group>"; };
+		06CE404426EE17B700F6E203 /* filter_design.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = filter_design.txt; sourceTree = "<group>"; };
+		06CE404526EE17B700F6E203 /* codecs.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = codecs.texi; sourceTree = "<group>"; };
+		06CE404626EE17B700F6E203 /* libavfilter.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = libavfilter.texi; sourceTree = "<group>"; };
+		06CE404726EE17B700F6E203 /* issue_tracker.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = issue_tracker.txt; sourceTree = "<group>"; };
+		06CE404826EE17B700F6E203 /* ffmpeg-devices.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-devices.texi"; sourceTree = "<group>"; };
+		06CE404926EE17B700F6E203 /* swresample.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = swresample.txt; sourceTree = "<group>"; };
+		06CE404A26EE17B700F6E203 /* style.min.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.min.css; sourceTree = "<group>"; };
+		06CE404B26EE17B700F6E203 /* snow.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = snow.txt; sourceTree = "<group>"; };
+		06CE404C26EE17B700F6E203 /* authors.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = authors.texi; sourceTree = "<group>"; };
+		06CE404D26EE17B700F6E203 /* metadata.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = metadata.texi; sourceTree = "<group>"; };
+		06CE404E26EE17B700F6E203 /* texi2pod.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = texi2pod.pl; sourceTree = "<group>"; };
+		06CE404F26EE17B700F6E203 /* platform.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = platform.texi; sourceTree = "<group>"; };
+		06CE405026EE17B700F6E203 /* nut.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = nut.texi; sourceTree = "<group>"; };
+		06CE405126EE17B700F6E203 /* encoders.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = encoders.texi; sourceTree = "<group>"; };
+		06CE405226EE17B700F6E203 /* writing_filters.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = writing_filters.txt; sourceTree = "<group>"; };
+		06CE405326EE17B700F6E203 /* bitstream_filters.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = bitstream_filters.texi; sourceTree = "<group>"; };
+		06CE405426EE17B700F6E203 /* errno.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = errno.txt; sourceTree = "<group>"; };
+		06CE405526EE17B700F6E203 /* t2h.init */ = {isa = PBXFileReference; lastKnownFileType = text; path = t2h.init; sourceTree = "<group>"; };
+		06CE405626EE17B700F6E203 /* fate.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = fate.texi; sourceTree = "<group>"; };
+		06CE405726EE17B700F6E203 /* fftools-common-opts.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "fftools-common-opts.texi"; sourceTree = "<group>"; };
+		06CE405826EE17B700F6E203 /* formats.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = formats.texi; sourceTree = "<group>"; };
+		06CE405926EE17B700F6E203 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		06CE405A26EE17B700F6E203 /* resampler.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = resampler.texi; sourceTree = "<group>"; };
+		06CE405B26EE17B700F6E203 /* ffmpeg-bitstream-filters.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-bitstream-filters.texi"; sourceTree = "<group>"; };
+		06CE405C26EE17B700F6E203 /* libavdevice.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = libavdevice.texi; sourceTree = "<group>"; };
+		06CE405D26EE17B700F6E203 /* APIchanges */ = {isa = PBXFileReference; lastKnownFileType = text; path = APIchanges; sourceTree = "<group>"; };
+		06CE405E26EE17B700F6E203 /* general.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = general.texi; sourceTree = "<group>"; };
+		06CE405F26EE17B700F6E203 /* outdevs.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = outdevs.texi; sourceTree = "<group>"; };
+		06CE406026EE17B700F6E203 /* faq.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = faq.texi; sourceTree = "<group>"; };
+		06CE406126EE17B700F6E203 /* decoders.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = decoders.texi; sourceTree = "<group>"; };
+		06CE406226EE17B700F6E203 /* developer.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = developer.texi; sourceTree = "<group>"; };
+		06CE406326EE17B700F6E203 /* ffmpeg-scaler.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-scaler.texi"; sourceTree = "<group>"; };
+		06CE406426EE17B700F6E203 /* protocols.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = protocols.texi; sourceTree = "<group>"; };
+		06CE406526EE17B700F6E203 /* ffprobe.xsd */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ffprobe.xsd; sourceTree = "<group>"; };
+		06CE406626EE17B700F6E203 /* optimization.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = optimization.txt; sourceTree = "<group>"; };
+		06CE406726EE17B700F6E203 /* ffprobe.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = ffprobe.texi; sourceTree = "<group>"; };
+		06CE406826EE17B700F6E203 /* ffmpeg-utils.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-utils.texi"; sourceTree = "<group>"; };
+		06CE406926EE17B700F6E203 /* patchwork */ = {isa = PBXFileReference; lastKnownFileType = text; path = patchwork; sourceTree = "<group>"; };
+		06CE406A26EE17B700F6E203 /* general_contents.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = general_contents.texi; sourceTree = "<group>"; };
+		06CE406B26EE17B700F6E203 /* multithreading.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = multithreading.txt; sourceTree = "<group>"; };
+		06CE406C26EE17B700F6E203 /* ffmpeg-filters.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-filters.texi"; sourceTree = "<group>"; };
+		06CE406D26EE17B700F6E203 /* libav-merge.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "libav-merge.txt"; sourceTree = "<group>"; };
+		06CE406E26EE17B700F6E203 /* mailing-list-faq.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "mailing-list-faq.texi"; sourceTree = "<group>"; };
+		06CE406F26EE17B700F6E203 /* tablegen.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = tablegen.txt; sourceTree = "<group>"; };
+		06CE407026EE17B700F6E203 /* mips.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mips.txt; sourceTree = "<group>"; };
+		06CE407126EE17B700F6E203 /* libswresample.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = libswresample.texi; sourceTree = "<group>"; };
+		06CE407226EE17B700F6E203 /* fate_config.sh.template */ = {isa = PBXFileReference; lastKnownFileType = text; path = fate_config.sh.template; sourceTree = "<group>"; };
+		06CE407326EE17B700F6E203 /* build_system.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = build_system.txt; sourceTree = "<group>"; };
+		06CE407426EE17B700F6E203 /* demuxers.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = demuxers.texi; sourceTree = "<group>"; };
+		06CE407526EE17B700F6E203 /* devices.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = devices.texi; sourceTree = "<group>"; };
+		06CE407626EE17B700F6E203 /* scaler.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = scaler.texi; sourceTree = "<group>"; };
+		06CE407726EE17B700F6E203 /* libavutil.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = libavutil.texi; sourceTree = "<group>"; };
+		06CE407826EE17B700F6E203 /* indevs.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = indevs.texi; sourceTree = "<group>"; };
+		06CE407926EE17B700F6E203 /* default.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
+		06CE407A26EE17B700F6E203 /* examples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = examples; sourceTree = "<group>"; };
+		06CE407B26EE17B700F6E203 /* texidep.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = texidep.pl; sourceTree = "<group>"; };
+		06CE407C26EE17B700F6E203 /* t2h.pm */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; path = t2h.pm; sourceTree = "<group>"; };
+		06CE407D26EE17B700F6E203 /* transforms.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = transforms.md; sourceTree = "<group>"; };
+		06CE407E26EE17B700F6E203 /* lexicon */ = {isa = PBXFileReference; lastKnownFileType = text; path = lexicon; sourceTree = "<group>"; };
+		06CE407F26EE17B700F6E203 /* swscale.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = swscale.txt; sourceTree = "<group>"; };
+		06CE408026EE17B700F6E203 /* ffplay.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = ffplay.texi; sourceTree = "<group>"; };
+		06CE408126EE17B700F6E203 /* dev_community */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dev_community; sourceTree = "<group>"; };
+		06CE408226EE17B700F6E203 /* ffmpeg-codecs.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-codecs.texi"; sourceTree = "<group>"; };
+		06CE408326EE17B700F6E203 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
+		06CE408426EE17B700F6E203 /* ffmpeg-formats.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-formats.texi"; sourceTree = "<group>"; };
+		06CE408526EE17B700F6E203 /* ffmpeg.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = ffmpeg.texi; sourceTree = "<group>"; };
+		06CE408626EE17B700F6E203 /* doxy */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doxy; sourceTree = "<group>"; };
+		06CE408726EE17B700F6E203 /* libswscale.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = libswscale.texi; sourceTree = "<group>"; };
+		06CE408826EE17B700F6E203 /* utils.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = utils.texi; sourceTree = "<group>"; };
+		06CE408926EE17B700F6E203 /* ffmpeg-protocols.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-protocols.texi"; sourceTree = "<group>"; };
+		06CE408A26EE17B700F6E203 /* ffmpeg.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ffmpeg.txt; sourceTree = "<group>"; };
+		06CE408B26EE17B700F6E203 /* doxy-wrapper.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "doxy-wrapper.sh"; sourceTree = "<group>"; };
+		06CE408C26EE17B700F6E203 /* filters.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = filters.texi; sourceTree = "<group>"; };
+		06CE408D26EE17B700F6E203 /* print_options.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print_options.c; sourceTree = "<group>"; };
+		06CE408E26EE17B700F6E203 /* git-howto.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "git-howto.texi"; sourceTree = "<group>"; };
+		06CE408F26EE17B700F6E203 /* ffmpeg-resampler.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ffmpeg-resampler.texi"; sourceTree = "<group>"; };
+		06CE409026EE17B700F6E203 /* undefined.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = undefined.txt; sourceTree = "<group>"; };
+		06CE409126EE17B700F6E203 /* muxers.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = muxers.texi; sourceTree = "<group>"; };
+		06CE409226EE17B700F6E203 /* libavformat.texi */ = {isa = PBXFileReference; lastKnownFileType = text; path = libavformat.texi; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06CE403B26EE17B700F6E203 = {
+			isa = PBXGroup;
+			children = (
+				06CE404126EE17B700F6E203 /* libavcodec.texi */,
+				06CE404226EE17B700F6E203 /* bootstrap.min.css */,
+				06CE404326EE17B700F6E203 /* rate_distortion.txt */,
+				06CE404426EE17B700F6E203 /* filter_design.txt */,
+				06CE404526EE17B700F6E203 /* codecs.texi */,
+				06CE404626EE17B700F6E203 /* libavfilter.texi */,
+				06CE404726EE17B700F6E203 /* issue_tracker.txt */,
+				06CE404826EE17B700F6E203 /* ffmpeg-devices.texi */,
+				06CE404926EE17B700F6E203 /* swresample.txt */,
+				06CE404A26EE17B700F6E203 /* style.min.css */,
+				06CE404B26EE17B700F6E203 /* snow.txt */,
+				06CE404C26EE17B700F6E203 /* authors.texi */,
+				06CE404D26EE17B700F6E203 /* metadata.texi */,
+				06CE404E26EE17B700F6E203 /* texi2pod.pl */,
+				06CE404F26EE17B700F6E203 /* platform.texi */,
+				06CE405026EE17B700F6E203 /* nut.texi */,
+				06CE405126EE17B700F6E203 /* encoders.texi */,
+				06CE405226EE17B700F6E203 /* writing_filters.txt */,
+				06CE405326EE17B700F6E203 /* bitstream_filters.texi */,
+				06CE405426EE17B700F6E203 /* errno.txt */,
+				06CE405526EE17B700F6E203 /* t2h.init */,
+				06CE405626EE17B700F6E203 /* fate.texi */,
+				06CE405726EE17B700F6E203 /* fftools-common-opts.texi */,
+				06CE405826EE17B700F6E203 /* formats.texi */,
+				06CE405926EE17B700F6E203 /* Makefile */,
+				06CE405A26EE17B700F6E203 /* resampler.texi */,
+				06CE405B26EE17B700F6E203 /* ffmpeg-bitstream-filters.texi */,
+				06CE405C26EE17B700F6E203 /* libavdevice.texi */,
+				06CE405D26EE17B700F6E203 /* APIchanges */,
+				06CE405E26EE17B700F6E203 /* general.texi */,
+				06CE405F26EE17B700F6E203 /* outdevs.texi */,
+				06CE406026EE17B700F6E203 /* faq.texi */,
+				06CE406126EE17B700F6E203 /* decoders.texi */,
+				06CE406226EE17B700F6E203 /* developer.texi */,
+				06CE406326EE17B700F6E203 /* ffmpeg-scaler.texi */,
+				06CE406426EE17B700F6E203 /* protocols.texi */,
+				06CE406526EE17B700F6E203 /* ffprobe.xsd */,
+				06CE406626EE17B700F6E203 /* optimization.txt */,
+				06CE406726EE17B700F6E203 /* ffprobe.texi */,
+				06CE406826EE17B700F6E203 /* ffmpeg-utils.texi */,
+				06CE406926EE17B700F6E203 /* patchwork */,
+				06CE406A26EE17B700F6E203 /* general_contents.texi */,
+				06CE406B26EE17B700F6E203 /* multithreading.txt */,
+				06CE406C26EE17B700F6E203 /* ffmpeg-filters.texi */,
+				06CE406D26EE17B700F6E203 /* libav-merge.txt */,
+				06CE406E26EE17B700F6E203 /* mailing-list-faq.texi */,
+				06CE406F26EE17B700F6E203 /* tablegen.txt */,
+				06CE407026EE17B700F6E203 /* mips.txt */,
+				06CE407126EE17B700F6E203 /* libswresample.texi */,
+				06CE407226EE17B700F6E203 /* fate_config.sh.template */,
+				06CE407326EE17B700F6E203 /* build_system.txt */,
+				06CE407426EE17B700F6E203 /* demuxers.texi */,
+				06CE407526EE17B700F6E203 /* devices.texi */,
+				06CE407626EE17B700F6E203 /* scaler.texi */,
+				06CE407726EE17B700F6E203 /* libavutil.texi */,
+				06CE407826EE17B700F6E203 /* indevs.texi */,
+				06CE407926EE17B700F6E203 /* default.css */,
+				06CE407A26EE17B700F6E203 /* examples */,
+				06CE407B26EE17B700F6E203 /* texidep.pl */,
+				06CE407C26EE17B700F6E203 /* t2h.pm */,
+				06CE407D26EE17B700F6E203 /* transforms.md */,
+				06CE407E26EE17B700F6E203 /* lexicon */,
+				06CE407F26EE17B700F6E203 /* swscale.txt */,
+				06CE408026EE17B700F6E203 /* ffplay.texi */,
+				06CE408126EE17B700F6E203 /* dev_community */,
+				06CE408226EE17B700F6E203 /* ffmpeg-codecs.texi */,
+				06CE408326EE17B700F6E203 /* Doxyfile */,
+				06CE408426EE17B700F6E203 /* ffmpeg-formats.texi */,
+				06CE408526EE17B700F6E203 /* ffmpeg.texi */,
+				06CE408626EE17B700F6E203 /* doxy */,
+				06CE408726EE17B700F6E203 /* libswscale.texi */,
+				06CE408826EE17B700F6E203 /* utils.texi */,
+				06CE408926EE17B700F6E203 /* ffmpeg-protocols.texi */,
+				06CE408A26EE17B700F6E203 /* ffmpeg.txt */,
+				06CE408B26EE17B700F6E203 /* doxy-wrapper.sh */,
+				06CE408C26EE17B700F6E203 /* filters.texi */,
+				06CE408D26EE17B700F6E203 /* print_options.c */,
+				06CE408E26EE17B700F6E203 /* git-howto.texi */,
+				06CE408F26EE17B700F6E203 /* ffmpeg-resampler.texi */,
+				06CE409026EE17B700F6E203 /* undefined.txt */,
+				06CE409126EE17B700F6E203 /* muxers.texi */,
+				06CE409226EE17B700F6E203 /* libavformat.texi */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		06CE404026EE17B700F6E203 /* doc */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 06CE409326EE17B700F6E203 /* Build configuration list for PBXLegacyTarget "doc" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/justinlau/audio-video-dev-tutorial/ffmpeg/doc";
+			dependencies = (
+			);
+			name = doc;
+			passBuildSettingsInEnvironment = 1;
+			productName = doc;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		06CE403C26EE17B700F6E203 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 06CE403F26EE17B700F6E203 /* Build configuration list for PBXProject "doc" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06CE403B26EE17B700F6E203;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06CE404026EE17B700F6E203 /* doc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		06CE403D26EE17B700F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		06CE403E26EE17B700F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		06CE409426EE17B700F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = doc;
+			};
+			name = Debug;
+		};
+		06CE409526EE17B700F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = doc;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06CE403F26EE17B700F6E203 /* Build configuration list for PBXProject "doc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE403D26EE17B700F6E203 /* Debug */,
+				06CE403E26EE17B700F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06CE409326EE17B700F6E203 /* Build configuration list for PBXLegacyTarget "doc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE409426EE17B700F6E203 /* Debug */,
+				06CE409526EE17B700F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06CE403C26EE17B700F6E203 /* Project object */;
+}

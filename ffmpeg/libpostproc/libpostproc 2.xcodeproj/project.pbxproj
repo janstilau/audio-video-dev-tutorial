@@ -1,0 +1,168 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		06CE4CA726EE17B800F6E203 /* postprocess_altivec_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = postprocess_altivec_template.c; sourceTree = "<group>"; };
+		06CE4CA826EE17B800F6E203 /* version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		06CE4CA926EE17B800F6E203 /* postprocess.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = postprocess.c; sourceTree = "<group>"; };
+		06CE4CAA26EE17B800F6E203 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		06CE4CAB26EE17B800F6E203 /* postprocres.rc */ = {isa = PBXFileReference; lastKnownFileType = text; path = postprocres.rc; sourceTree = "<group>"; };
+		06CE4CAC26EE17B800F6E203 /* postprocess_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postprocess_internal.h; sourceTree = "<group>"; };
+		06CE4CAD26EE17B800F6E203 /* libpostproc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = libpostproc.xcodeproj; sourceTree = "<group>"; };
+		06CE4CB026EE17B800F6E203 /* postprocess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postprocess.h; sourceTree = "<group>"; };
+		06CE4CB126EE17B800F6E203 /* postprocess_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = postprocess_template.c; sourceTree = "<group>"; };
+		06CE4CB226EE17B800F6E203 /* libpostproc.v */ = {isa = PBXFileReference; lastKnownFileType = text; path = libpostproc.v; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06CE4CA126EE17B800F6E203 = {
+			isa = PBXGroup;
+			children = (
+				06CE4CA726EE17B800F6E203 /* postprocess_altivec_template.c */,
+				06CE4CA826EE17B800F6E203 /* version.h */,
+				06CE4CA926EE17B800F6E203 /* postprocess.c */,
+				06CE4CAA26EE17B800F6E203 /* Makefile */,
+				06CE4CAB26EE17B800F6E203 /* postprocres.rc */,
+				06CE4CAC26EE17B800F6E203 /* postprocess_internal.h */,
+				06CE4CAD26EE17B800F6E203 /* libpostproc.xcodeproj */,
+				06CE4CB026EE17B800F6E203 /* postprocess.h */,
+				06CE4CB126EE17B800F6E203 /* postprocess_template.c */,
+				06CE4CB226EE17B800F6E203 /* libpostproc.v */,
+			);
+			sourceTree = "<group>";
+		};
+		06CE4CAE26EE17B800F6E203 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		06CE4CA626EE17B800F6E203 /* libpostproc */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 06CE4CB426EE17B800F6E203 /* Build configuration list for PBXLegacyTarget "libpostproc" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/justinlau/audio-video-dev-tutorial/ffmpeg/libpostproc";
+			dependencies = (
+			);
+			name = libpostproc;
+			passBuildSettingsInEnvironment = 1;
+			productName = libpostproc;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		06CE4CA226EE17B800F6E203 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 06CE4CA526EE17B800F6E203 /* Build configuration list for PBXProject "libpostproc 2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06CE4CA126EE17B800F6E203;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 06CE4CAE26EE17B800F6E203 /* Products */;
+					ProjectRef = 06CE4CAD26EE17B800F6E203 /* libpostproc.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				06CE4CA626EE17B800F6E203 /* libpostproc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		06CE4CA326EE17B800F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		06CE4CA426EE17B800F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		06CE4CB526EE17B800F6E203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libpostproc;
+			};
+			name = Debug;
+		};
+		06CE4CB626EE17B800F6E203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libpostproc;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06CE4CA526EE17B800F6E203 /* Build configuration list for PBXProject "libpostproc 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE4CA326EE17B800F6E203 /* Debug */,
+				06CE4CA426EE17B800F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06CE4CB426EE17B800F6E203 /* Build configuration list for PBXLegacyTarget "libpostproc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CE4CB526EE17B800F6E203 /* Debug */,
+				06CE4CB626EE17B800F6E203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06CE4CA226EE17B800F6E203 /* Project object */;
+}

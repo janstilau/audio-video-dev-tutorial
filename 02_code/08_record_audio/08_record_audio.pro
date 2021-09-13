@@ -30,12 +30,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-win32 {
-    FFMPEG_HOME = ..
-}
-
 macx {
-    FFMPEG_HOME = /Users/liugq01/QtCodeHub/audio-video-dev-tutorial/4.4_2
+    FFMPEG_HOME = /Users/justinlau/audio-video-dev-tutorial/4.4_2
 }
 
 INCLUDEPATH += $${FFMPEG_HOME}/include
