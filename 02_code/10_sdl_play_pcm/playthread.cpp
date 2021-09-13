@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QFile>
 
-#define FILENAME "F:/in.pcm"
+#define FILENAME "/Users/liugq01/res/in.pcm"
 #define SAMPLE_RATE 44100
 #define SAMPLE_SIZE 16
 #define CHANNELS 2
@@ -79,7 +79,6 @@ void PlayThread::run() {
     spec.samples = 1024;
     // 回调
     spec.callback = pull_audio_data;
-    spec.userdata = 100;
 
     // 打开设备
     if (SDL_OpenAudio(&spec, nullptr)) {
