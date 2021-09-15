@@ -116,6 +116,7 @@ void AudioThread::run() {
 //            file.write((const char *) pkt.data, pkt.size);
 
             file.write((const char *) pkt->data, pkt->size);
+            file.flush();
         } else if (ret == AVERROR(EAGAIN)) { // 资源临时不可用
             continue;
         } else { // 其他错误
