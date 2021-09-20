@@ -22,10 +22,10 @@ AudioThread::~AudioThread() {
 
 void AudioThread::run() {
     AudioEncodeSpec in;
-    in.filename = "F:/in.pcm";
+    in.filename = "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/02_code/16_aac_encode/44100_s16le_2.pcm";
     in.sampleRate = 44100;
     in.sampleFmt = AV_SAMPLE_FMT_S16;
     in.chLayout = AV_CH_LAYOUT_STEREO;
 
-    FFmpegs::aacEncode(in, "F:/out.aac");
+    FFmpegs::aacEncode(in, "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/02_code/16_aac_encode/44100_s16le_2.aac");
 }

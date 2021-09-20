@@ -39,7 +39,7 @@ win32 {
 }
 
 macx {
-    FFMPEG_HOME = /usr/local/ffmpeg
+    FFMPEG_HOME = /usr/local/Cellar/ffmpeg/4.4_2
 }
 
 INCLUDEPATH += $${FFMPEG_HOME}/include
