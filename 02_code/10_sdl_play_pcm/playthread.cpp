@@ -5,6 +5,7 @@
 #include <QFile>
 
 #define FILENAME "/Users/liugq01/res/in.pcm"
+
 #define SAMPLE_RATE 44100
 #define SAMPLE_SIZE 16
 #define CHANNELS 2
@@ -33,6 +34,9 @@ PlayThread::~PlayThread() {
 int bufferLen;
 char *bufferData;
 
+/**
+ *  音频设备, 有着自己的刷新频率. 当需要新的音频数据的时候, 就会调用回调方法, 在回调方法内, 使用准备好的数据, 将 stream 进行填充.
+*/
 // 等待音频设备回调(会回调多次)
 void pull_audio_data(void *userdata,
                      // 需要往stream中填充PCM数据

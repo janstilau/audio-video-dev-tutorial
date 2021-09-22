@@ -18,7 +18,7 @@ void MainWindow::on_audioButton_clicked() {
         _audioThread->start();
 
         connect(_audioThread, &AudioThread::finished,
-        [this]() { // 线程结束
+                [this]() { // 线程结束
             _audioThread = nullptr;
             ui->audioButton->setText("开始录音");
         });
@@ -27,7 +27,7 @@ void MainWindow::on_audioButton_clicked() {
         ui->audioButton->setText("结束录音");
     } else { // 点击了“结束录音”
         // 结束线程
-//        _audioThread->setStop(true);
+        //        _audioThread->setStop(true);
         _audioThread->requestInterruption();
         _audioThread = nullptr;
 

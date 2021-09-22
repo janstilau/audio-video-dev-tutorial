@@ -23,8 +23,8 @@ extern "C" {
     #define FILEPATH "F:/"
 #else
     #define FMT_NAME "avfoundation"
-    #define DEVICE_NAME ":0"
-    #define FILEPATH "/Users/mj/Desktop/"
+    #define DEVICE_NAME ":2"
+    #define FILEPATH "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/output/"
 #endif
 
 AudioThread::AudioThread(QObject *parent) : QThread(parent) {
@@ -50,13 +50,13 @@ void showSpec(AVFormatContext *ctx) {
     // 获取音频参数
     AVCodecParameters *params = stream->codecpar;
     // 声道数
-    qDebug() << params->channels;
+    qDebug() <<  "channels: " <<  params->channels;
     // 采样率
-    qDebug() << params->sample_rate;
+    qDebug() << "sample_rate: " << params->sample_rate;
     // 采样格式
-    qDebug() << params->format;
+    qDebug() << "format: " << params->format;
     // 每一个样本的一个声道占用多少个字节
-    qDebug() << av_get_bytes_per_sample((AVSampleFormat) params->format);
+    qDebug() << "位深度: " << av_get_bytes_per_sample((AVSampleFormat) params->format);
 }
 
 // 当线程启动的时候（start），就会自动调用run函数
