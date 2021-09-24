@@ -84,6 +84,7 @@ void pull_audio_data(void *userdata,
                  buffer->data,
                  buffer->pullLen,
                  SDL_MIX_MAXVOLUME);
+
     buffer->data += buffer->pullLen;
     buffer->len -= buffer->pullLen;
 }
