@@ -11,7 +11,6 @@ extern "C" {
 YuvPlayer::YuvPlayer(QWidget *parent) : QWidget(parent) {
     // 设置背景色
     setAttribute(Qt::WA_StyledBackground);
-//    setAttribute(Qt::WA_StyledBackground, true);
     setStyleSheet("background: black");
 }
 
@@ -27,7 +26,6 @@ void YuvPlayer::play() {
     // 状态可能是：暂停、停止、正常完毕
 
     _timerId = startTimer(_interval);
-
     setState(Playing);
 }
 
@@ -65,6 +63,9 @@ bool YuvPlayer::isPlaying() {
     return _state == Playing;
 }
 
+/*
+ *  这个函数, 主要是为了发送信号出去.
+ */
 void YuvPlayer::setState(State state) {
     if (state == _state) return;
 
@@ -115,6 +116,10 @@ void YuvPlayer::setYuv(Yuv &yuv) {
     int dw = yuv.width;
     int dh = yuv.height;
 
+    /*
+     * 拿到, 显示的尺寸, 和 YUV 里面 Img 的尺寸, 然后计算最终 影片的显示的区域.
+     * 从这里我们可以看到, 影片就是一个特殊的数据而已, 最终如何显示, 显示的区域在哪里, 完全还是 UI 层可以决定的.
+     */
     // 计算目标尺寸
     if (dw > w || dh > h) { // 缩放
         if (dw * h > w * dh) { // 视频的宽高比 > 播放器的宽高比
@@ -130,7 +135,7 @@ void YuvPlayer::setYuv(Yuv &yuv) {
     dx = (w - dw) >> 1;
     dy = (h - dh) >> 1;
 
-    _dstRect = QRect(dx, dy, dw, dh);
+    _dstRect = QRect(dx, dy, dw, dh); // 计算出了最终的显示区域, 然后会在 PaintEvent 里面使用.
     qDebug() << "视频的矩形框" << dx << dy << dw << dh;
 }
 
@@ -143,6 +148,11 @@ void YuvPlayer::paintEvent(QPaintEvent *event) {
     QPainter(this).drawImage(_dstRect, *_currentImage);
 }
 
+/*
+ * 影片播放, 就是在固定的时间频率里面, 不断的刷新显示影片的 View.
+ * 这个实现, 目前是放到了 TimerEvent 里面.
+ * 每次时间触发后, 读取数据, 然后转换成为对应的 Img 的数据格式, 然后将这个图片, 刷到显示的 View 上.
+ */
 void YuvPlayer::timerEvent(QTimerEvent *event) {
     // 图片大小
     char data[_imgSize];

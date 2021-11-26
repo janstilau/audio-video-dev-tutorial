@@ -4,6 +4,19 @@
 #include <QFile>
 #include <QDateTime>
 
+/*
+ *
+ * ffmpeg -f avfoundation -list_devices true -i ''
+ *
+[AVFoundation indev @ 0x7fba26b043c0] AVFoundation video devices:
+[AVFoundation indev @ 0x7fba26b043c0] [0] FaceTime高清摄像头（内建）
+[AVFoundation indev @ 0x7fba26b043c0] [1] Capture screen 0
+[AVFoundation indev @ 0x7fba26b043c0] AVFoundation audio devices:
+[AVFoundation indev @ 0x7fba26b043c0] [0] Cast Audio
+[AVFoundation indev @ 0x7fba26b043c0] [1] Cast Audio (UI Sounds)
+[AVFoundation indev @ 0x7fba26b043c0] [2] Built-in Microphone
+ */
+
 extern "C" {
 // 设备
 #include <libavdevice/avdevice.h>
@@ -15,16 +28,16 @@ extern "C" {
 }
 
 #ifdef Q_OS_WIN
-    // 格式名称
-    #define FMT_NAME "dshow"
-    // 设备名称
-    #define DEVICE_NAME "audio=线路输入 (3- 魅声T800)"
-    // PCM文件名
-    #define FILEPATH "F:/"
+// 格式名称
+#define FMT_NAME "dshow"
+// 设备名称
+#define DEVICE_NAME "audio=线路输入 (3- 魅声T800)"
+// PCM文件名
+#define FILEPATH "F:/"
 #else
-    #define FMT_NAME "avfoundation"
-    #define DEVICE_NAME ":2"
-    #define FILEPATH "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/output/"
+#define FMT_NAME "avfoundation"
+#define DEVICE_NAME ":2"
+#define FILEPATH "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/output/"
 #endif
 
 AudioThread::AudioThread(QObject *parent) : QThread(parent) {
@@ -104,16 +117,16 @@ void AudioThread::run() {
     }
 
     // 数据包
-//    AVPacket pkt;
+    //    AVPacket pkt;
     AVPacket *pkt = av_packet_alloc();
     while (!isInterruptionRequested()) {
         // 不断采集数据
-//        ret = av_read_frame(ctx, &pkt);
+        //        ret = av_read_frame(ctx, &pkt);
         ret = av_read_frame(ctx, pkt);
 
         if (ret == 0) { // 读取成功
             // 将数据写入文件
-//            file.write((const char *) pkt.data, pkt.size);
+            //            file.write((const char *) pkt.data, pkt.size);
 
             file.write((const char *) pkt->data, pkt->size);
             file.flush();
@@ -127,14 +140,9 @@ void AudioThread::run() {
         }
 
         // 必须要加，释放pkt内部的资源
-//        av_packet_unref(&pkt);
+        //        av_packet_unref(&pkt);
         av_packet_unref(pkt);
     }
-//    while (!_stop && av_read_frame(ctx, &pkt) == 0) {
-//        // 将数据写入文件
-//        file.write((const char *) pkt.data, pkt.size);
-//    }
-
     // 释放资源
     // 关闭文件
     file.close();

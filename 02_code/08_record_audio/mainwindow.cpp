@@ -24,7 +24,7 @@ extern "C" {
 #else
     #define FMT_NAME "avfoundation"
     #define DEVICE_NAME ":0"
-    #define FILENAME "/Users/justinlau/audio-video-dev-tutorial/output/output.pcm"
+    #define FILENAME "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/output/record.pcm"
 #endif
 
 MainWindow::MainWindow(QWidget *parent)
@@ -39,10 +39,9 @@ MainWindow::~MainWindow() {
 
 void MainWindow::on_audioButton_clicked() {
 
-
-    qDebug() << "on_audioButton_clicked" << QThread::currentThread();
-
     // 获取输入格式对象
+    // 在 av_find_input_format 的时候, 其实会填充 Format 的信息的.
+    // 每种设备, 其实有着自己的 频率, 大小, 格式信息的. 使用硬件设备, 录入的数据, 就是硬件设备的信息.
     AVInputFormat *fmt = av_find_input_format(FMT_NAME);
     if (!fmt) {
         qDebug() << "获取输入格式对象失败" << FMT_NAME;

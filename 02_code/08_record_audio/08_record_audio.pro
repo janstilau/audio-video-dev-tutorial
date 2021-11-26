@@ -24,14 +24,8 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
 macx {
-    FFMPEG_HOME = /Users/justinlau/audio-video-dev-tutorial/4.4_2
+    FFMPEG_HOME = $${PWD}/../../4.4_2
 }
 
 INCLUDEPATH += $${FFMPEG_HOME}/include

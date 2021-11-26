@@ -27,8 +27,6 @@ PlayThread::~PlayThread() {
     requestInterruption();
     quit();
     wait();
-
-    qDebug() << this << "析构了";
 }
 
 int bufferLen;

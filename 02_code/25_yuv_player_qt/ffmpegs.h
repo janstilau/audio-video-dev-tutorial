@@ -6,17 +6,17 @@ extern "C" {
 }
 
 typedef struct {
-    char *pixels;
-    int width;
-    int height;
-    AVPixelFormat format;
+    char *pixels; // 缓存区的指针
+    int width; // 分辨率信息
+    int height; // 分辨率信息
+    AVPixelFormat format; // 缓存区内数据格式.
 } RawVideoFrame;
 
 typedef struct {
-    const char *filename;
-    int width;
-    int height;
-    AVPixelFormat format;
+    const char *filename; // 文件路径信息
+    int width; // 分辨率信息
+    int height; // 分辨率信息
+    AVPixelFormat format; // 文件内的数据格式.
 } RawVideoFile;
 
 class FFmpegs {

@@ -23,6 +23,9 @@ FFmpegs::FFmpegs() {
 
 }
 
+/*
+ *  每一帧的数据改变.
+ */
 void FFmpegs::convertRawVideo(RawVideoFrame &in,
                               RawVideoFrame &out) {
     // 上下文
@@ -105,6 +108,19 @@ void FFmpegs::convertRawVideo(RawVideoFile &in,
     QFile inFile(in.filename), outFile(out.filename);
 
     // 创建上下文
+    /*
+     * 上下文, 可以看做是一个数据盒子.
+     * 尤其是 C 风格的代码里面, 操作都是建立在函数的基础上, 各个所需要的量, 都用参数的形式, 传递到函数的内部.
+     * 所以, 上下文里面, 应该是这次操作, 所需要的各种值的信息. 在 Get, Init, Create 方法里面, 根据传递过来的其他值, 来计算出上下文的各个值, 然后存储到上下文的各个属性的内部.
+     * C 风格的代码, 这种上下文的传递是很常见的.
+     * 例如, UserData 这种东西, 就是一个切口, 给用户一个, 可以传递自己定义的上下文的权利.
+     */
+    /*
+     * 在流程函数里面, 各个地方传递这个上下文. 有些地方, 可能仅仅是拿到这个上下文, 取值做自己的操作.
+     * 有些地方, 可能会改变这个上下文的值.
+     * C 风格的代码有个问题, 就是通过函数名, 来确定, 这是一个 get 使用, 还是会产生副作用.
+     * 不过, 上下文是个数据盒子, 这件事应该是没有问题的.
+     */
     ctx = sws_getContext(in.width, in.height, in.format,
                          out.width, out.height, out.format,
                          SWS_BILINEAR, nullptr, nullptr, nullptr);
