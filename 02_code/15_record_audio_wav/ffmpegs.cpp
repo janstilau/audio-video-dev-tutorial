@@ -6,6 +6,9 @@ FFmpegs::FFmpegs() {
 
 }
 
+/*
+ * 这个函数, 是将一个已经存在的 PCM 文件, 转化成为一个 WAV 文件.
+ */
 void FFmpegs::pcm2wav(WAVHeader &header,
                       const char *pcmFilename,
                       const char *wavFilename) {

@@ -151,6 +151,7 @@ void VideoPlayer::sdlAudioCallback(Uint8 *stream, int len) {
 
     // len：SDL音频缓冲区剩余的大小（还未填充的大小）
     while (len > 0) {
+        // Pause 的意义, 就在这里, 如果状态为 Pause, 不过填充的动作.
         if (_state == Paused) break;
         if (_state == Stopped) {
             _aCanFree = true;

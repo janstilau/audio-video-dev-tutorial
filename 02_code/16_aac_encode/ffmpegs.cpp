@@ -21,7 +21,7 @@ static int check_sample_fmt(const AVCodec *codec,
     const enum AVSampleFormat *p = codec->sample_fmts;
 
     while (*p != AV_SAMPLE_FMT_NONE) {
-//        qDebug() << av_get_sample_fmt_name(*p);
+        //        qDebug() << av_get_sample_fmt_name(*p);
         if (*p == sample_fmt) return 1;
         p++;
     }
@@ -85,7 +85,7 @@ void FFmpegs::aacEncode(AudioEncodeSpec &in,
     AVPacket *pkt = nullptr;
 
     // 获取编码器
-//    codec = avcodec_find_encoder(AV_CODEC_ID_AAC);
+    //    codec = avcodec_find_encoder(AV_CODEC_ID_AAC);
     codec = avcodec_find_encoder_by_name("libfdk_aac");
     if (!codec) {
         qDebug() << "encoder not found";
@@ -117,9 +117,9 @@ void FFmpegs::aacEncode(AudioEncodeSpec &in,
     ctx->profile = FF_PROFILE_AAC_HE_V2;
 
     // 打开编码器
-//    AVDictionary *options = nullptr;
-//    av_dict_set(&options, "vbr", "5", 0);
-//    ret = avcodec_open2(ctx, codec, &options);
+    //    AVDictionary *options = nullptr;
+    //    av_dict_set(&options, "vbr", "5", 0);
+    //    ret = avcodec_open2(ctx, codec, &options);
     ret = avcodec_open2(ctx, codec, nullptr);
     if (ret < 0) {
         ERROR_BUF(ret);

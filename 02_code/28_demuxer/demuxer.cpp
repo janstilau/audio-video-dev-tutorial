@@ -30,6 +30,10 @@ Demuxer::Demuxer() {
 void Demuxer::demux(const char *inFilename,
                     AudioDecodeSpec &aOut,
                     VideoDecodeSpec &vOut) {
+    /*
+     * 在 Demux 里面, 使用指针, 保留了输出参数的索引.
+     * 在解压的过程中, 将解压后的数据, 输出到 filename 里面, 然后, 将得到的元数据的格式, 写到输出参数里面.
+     */
     // 保留参数
     _aOut = &aOut;
     _vOut = &vOut;
@@ -40,10 +44,20 @@ void Demuxer::demux(const char *inFilename,
     int ret = 0;
 
     // 创建解封装上下文、打开文件
+
+    /*
+     * _fmtCtx 里面, 应该会得到, 封装格式文件的文件头, 然后根据这些文件头, 做相应的处理操作.
+     * 所以实际这里, avformat_open_input 会有文件处理的逻辑在里面.
+     * 这也能够去理解, 在 AVFoundation 里面, 为什么会有 prepare 函数的存在.
+     * 录音, 播放是一个异步的过程, 在这个过程里面, 都是需要进行文件操作的. 在调用真正的处理函数之前, 所需要的准备工作, 就在 Prepare 函数内, 就是文件相关的, 设备相关的, 环境搭建的工作.
+     */
     ret = avformat_open_input(&_fmtCtx, inFilename, nullptr, nullptr);
     END(avformat_open_input);
 
     // 检索流信息
+    /*
+     * 正是, 因为上面有这些头信息的解析, 才能在正确的位置, 找到对应的音频, 视频轨道的数据.
+     */
     ret = avformat_find_stream_info(_fmtCtx, nullptr);
     END(avformat_find_stream_info);
 
@@ -76,6 +90,12 @@ void Demuxer::demux(const char *inFilename,
     pkt->size = 0;
 
     // 从输入文件中读取数据
+    /*
+     * 从 Mp4 中, 读取音视频信息, 然后解压的过程.
+     * 这个过程, 没有暴露出来.
+     *
+     * 已经, 读出来了一个 Packet 了, 然后根据 Packet 的类型, 将这个 Packet 数据, 使用不同的回调, 分别添加到了两个文件里面.
+     */
     while (av_read_frame(_fmtCtx, pkt) == 0) {
         if (pkt->stream_index == _aStreamIdx) { // 读取到的是音频数据
             ret = decode(_aDecodeCtx, pkt, &Demuxer::writeAudioFrame);
@@ -176,6 +196,10 @@ int Demuxer::initDecoder(AVCodecContext **decodeCtx,
                          AVMediaType type) {
     // 根据type寻找最合适的流信息
     // 返回值是流索引
+
+    // 这里的处理方式, 和 AVFoundation 是一样的. 都是根据 Type 值, 去寻找对应的轨道.
+    // 之前一直觉得, 这种处理方式有问题. 但是现在感觉, 应该没有太大的问题.
+    // 一般来说, 封装格式里面, 就应该有一条音频轨道, 一条视频轨道.
     int ret = av_find_best_stream(_fmtCtx, type, -1, -1, nullptr, 0);
     RET(av_find_best_stream);
 
@@ -194,6 +218,14 @@ int Demuxer::initDecoder(AVCodecContext **decodeCtx,
 //    } else {
 //        decoder = avcodec_find_decoder(stream->codecpar->codec_id);
 //    }
+    /*
+     * 封装格式文件. 里面封装了视频流.
+     * 但是这个视频流, 究竟是什么样的封装格式, 其实是不一定的.
+     * 所以, 在拿到流信息之后, 然后使用拿到的流信息, 去获取相应的解码器, 才是合理的行为.
+     * 这应该也是, 各个播放器的内部逻辑.
+     * 视频如何播放, 音频如何播放, 这都是播放器内部应该处理的逻辑.
+     * FFMepg, 做的就是这些事情. 所以, 自己想要实现一个播放器, 这些最底层的编码, 解码, 查找确定编解码器, 都是不可以避免的逻辑 .
+     */
     AVCodec *decoder = avcodec_find_decoder(stream->codecpar->codec_id);
     if (!decoder) {
         qDebug() << "decoder not found" << stream->codecpar->codec_id;
@@ -208,6 +240,8 @@ int Demuxer::initDecoder(AVCodecContext **decodeCtx,
     }
 
     // 从流中拷贝参数到解码上下文中
+    // 解压, 是需要对应的参数的. 应该解压成为什么样的格式, 应该使用什么分辨率, 帧率是什么, 这些都会记录到 stream 的信息里面.
+    // 所以在输出的时候, 也是将这些信息, 从 stream 的元信息里面, 拷贝出来, 到输出信息里面.
     ret = avcodec_parameters_to_context(*decodeCtx, stream->codecpar);
     RET(avcodec_parameters_to_context);
 
@@ -218,6 +252,11 @@ int Demuxer::initDecoder(AVCodecContext **decodeCtx,
     return 0;
 }
 
+/*
+ *  Decode 函数, 会将 Pkt 的数据, 送到对应的解码器, 然后从解码器里面, 一点点抽取出原始数据的 Frame 信息出来.
+ *  然后, 调用回调函数, 将这一 Frame 的信息, 写到相应的文件的内部.
+ *
+ */
 int Demuxer::decode(AVCodecContext *decodeCtx,
                     AVPacket *pkt,
                     void (Demuxer::*func)()) {
@@ -264,6 +303,10 @@ void Demuxer::writeVideoFrame() {
     _vOutFile.write((char *) _imgBuf[0], _imgSize);
 }
 
+// 解压后的数据, 放到了 _frame 之中了.
+// 所以, 这个函数, 不用传递参数.
+// 这也就是面向对象的好处, 保存状态.
+// 能够到达这里, 其实 _Frame 里面, 一定就是有值的了. 直接就可以, 将里面的数据, 写到文件系统里面.
 void Demuxer::writeAudioFrame() {
     // libfdk_aac解码器，解码出来的PCM格式：s16
     // aac解码器，解码出来的PCM格式：ftlp

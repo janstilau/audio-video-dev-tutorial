@@ -106,6 +106,7 @@ void VideoPlayer::freeVideo() {
 void VideoPlayer::decodeVideo() {
     while (true) {
         // 如果是暂停，并且没有Seek操作
+        // 我觉得, 这里应该写上 yield
         if (_state == Paused && _vSeekTime == -1) {
             continue;
         }
@@ -167,8 +168,6 @@ void VideoPlayer::decodeVideo() {
 //                    SDL_Delay(5);
                 }
             } else {
-                // TODO 没有音频的情况
-
             }
 
             // 把像素格式转换后的图片数据，拷贝一份出来

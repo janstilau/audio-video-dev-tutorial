@@ -48,6 +48,8 @@ AudioThread::~AudioThread() {
 // 当线程启动的时候（start），就会自动调用run函数
 // run函数中的代码是在子线程中执行的
 // 耗时操作应该放在run函数中
+
+
 void AudioThread::run() {
     qDebug() << this << "开始执行----------";
 
@@ -104,6 +106,10 @@ void AudioThread::run() {
     header.blockAlign = header.bitsPerSample * header.numChannels >> 3;
     header.byteRate = header.sampleRate * header.blockAlign;
 //    header.dataChunkDataSize = 0;
+
+    // 在录制之前, 提前将一部分 WAVHeaer 的数据, 填充到文件里面.
+    // 然后, 不断的将, 录制的音频数据, 填充到文件里面.
+    // 在上面的过程里面, 会不断地收集
     file.write((char *) &header, sizeof (WAVHeader));
 
     // 数据包

@@ -148,6 +148,12 @@ void AudioThread::run() {
     if (params->codec_id >= AV_CODEC_ID_PCM_F32BE) {
         header.audioFormat = AUDIO_FORMAT_FLOAT;
     }
+
+    /*
+     * 对于. PCM 转 WAV 来说, 就是在原始的 PCM 数据前面, 增加一个 WAV 的文件头而已.
+     * 这个文件头里面, 大部分的数据, 都是写死的. 但是, 对于采样率, 采样格式, 数据大小这些, 是需要在录制结束之后, 才能够获取到的.
+     * 所以, 在录制结束之后, 需要修改 Header 里面的数据, 将整体的信息, 在写到一个文件的内部.
+     */
     FFmpegs::pcm2wav(header,
                      filename.toUtf8().data(),
                      wavFilename.toUtf8().data());

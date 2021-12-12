@@ -32,10 +32,17 @@ PlayThread::~PlayThread() {
 int bufferLen;
 char *bufferData;
 
-/**
- *  音频设备, 有着自己的刷新频率. 当需要新的音频数据的时候, 就会调用回调方法, 在回调方法内, 使用准备好的数据, 将 stream 进行填充.
-*/
-// 等待音频设备回调(会回调多次)
+/*
+ * 音频设备, 有着自己的刷新频率.
+ * 当需要新的音频数据的时候, 就会调用回调方法, 在回调方法内, 使用准备好的数据, 将 stream 进行填充.
+ * 这是一个回调函数, 具体什么时候调用, 为什么调用到这里, 是实现的细节.
+ * 对于, 想要实现播放音频这项业务的开发者来说, 所要做的, 就是在回调的函数里面, 将目标位置的数据, 填充为自己准备的数据.
+ */
+/*
+ * 提前准备好数据, 然后在回调里面, 将这些数据, 填充到对应的 stream 里面.
+ * 如果每次, 都从文件里面, 读取数据, 感觉应该会有问题.
+ * IO 操作是一个不稳定的时间耗费, 提前将数据读取出来, 然后内存之间的操作, 要快的多的多.
+ */
 void pull_audio_data(void *userdata,
                      // 需要往stream中填充PCM数据
                      Uint8 *stream,
@@ -52,6 +59,7 @@ void pull_audio_data(void *userdata,
     len = (len > bufferLen) ? bufferLen : len;
 
     // 填充数据
+    // 使用 SDL 的方法, 将准备好的数据, 填充到对应的位置.
     SDL_MixAudio(stream, (Uint8 *) bufferData, len, SDL_MIX_MAXVOLUME);
     bufferData += len;
     bufferLen -= len;

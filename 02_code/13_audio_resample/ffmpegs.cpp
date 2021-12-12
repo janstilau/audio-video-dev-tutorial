@@ -15,6 +15,14 @@ FFmpegs::FFmpegs() {
 
 }
 
+/*
+ * 1. 输入缓存区. 用来存储转换前的数据
+ * 2. 输出缓存区. 用来存储转换后的数据.
+ * 3. 两个缓存区的大小, 是根据前后的格式, 计算出来的, MMMPEG 提供了这样的计算函数.
+ * 4. 打开文件, 读取特性的转换前的数据, 然后调用函数进行转化, 转换后的数据, 会在输出缓存区里面.
+ * 5. 然后将输出缓存区里面的数据, 填充到对应的输出文件里面.
+ */
+
 void FFmpegs::resampleAudio(ResampleAudioSpec &in,
                             ResampleAudioSpec &out) {
     resampleAudio(in.filename, in.sampleRate, in.sampleFmt, in.chLayout,

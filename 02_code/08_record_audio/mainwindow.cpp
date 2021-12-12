@@ -78,6 +78,9 @@ void MainWindow::on_audioButton_clicked() {
     // 数据包
     AVPacket pkt;
     // 不断采集数据
+    /*
+     * 对于, PCM 来说, 一个 Packet 就是一个 Frame.
+     */
     while (count-- > 0 && av_read_frame(ctx, &pkt) == 0) {
         // 将数据写入文件
         file.write((const char *) pkt.data, pkt.size);

@@ -75,6 +75,12 @@ void showSpec(AVFormatContext *ctx) {
 // 当线程启动的时候（start），就会自动调用run函数
 // run函数中的代码是在子线程中执行的
 // 耗时操作应该放在run函数中
+/*
+ *  Thread 可以看做是模板方法的一个应用实例.
+ *  Start 方法内, 会开启一个新的线程, 来去执行 Thread 里面固定的方法调用的流程, 其中就有 run 方法.
+ *  run 之前, 是一些环境的准备工作, run 之后, 又是一些环境的准备工作.
+ *  Thread 的子类创建者, 也就是业务开发者, 并不需要了解这些细节. 只要在 Run 方法内部, 编写这个 Thread 相关的业务代码就可以了.
+ */
 void AudioThread::run() {
     qDebug() << this << "开始执行----------";
 
@@ -118,6 +124,13 @@ void AudioThread::run() {
 
     // 数据包
     //    AVPacket pkt;
+    /*
+     * 使用循环的方式, 不断地读取输出的音频录制数据.
+     * 然后, 将这些数据, 用作业务处理.
+     * AVRecorder 封装的, 应该就是这些逻辑.
+     * AVRecorder 中, 控制时长的属性, 应该也就是不算的记录, 当前已经存储的 Packet 的数量, 根据采样率计算出当前已经录制的时长, 当发现, 已经超时之后, 停止录制的过程.
+     */
+
     AVPacket *pkt = av_packet_alloc();
     while (!isInterruptionRequested()) {
         // 不断采集数据
@@ -127,7 +140,6 @@ void AudioThread::run() {
         if (ret == 0) { // 读取成功
             // 将数据写入文件
             //            file.write((const char *) pkt.data, pkt.size);
-
             file.write((const char *) pkt->data, pkt->size);
             file.flush();
         } else if (ret == AVERROR(EAGAIN)) { // 资源临时不可用

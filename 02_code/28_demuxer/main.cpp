@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
 
 
 /*
+
 1.创建解封装上下文（打开输入文件，读取文件头）
 avformat_open_input
 

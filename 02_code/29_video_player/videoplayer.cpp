@@ -54,7 +54,7 @@ void VideoPlayer::stop() {
     // 状态可能是：正在播放、暂停、正常完毕
 
     // 改变状态
-//    setState(Stopped);
+    //    setState(Stopped);
     _state = Stopped;
 
     // 释放资源
@@ -63,10 +63,10 @@ void VideoPlayer::stop() {
     // 通知外界
     emit stateChanged(this);
 
-//    std::thread([this]() {
-//        SDL_Delay(100);
-//        free();
-//    }).detach();
+    //    std::thread([this]() {
+    //        SDL_Delay(100);
+    //        free();
+    //    }).detach();
 }
 
 bool VideoPlayer::isPlaying() {
@@ -78,7 +78,7 @@ VideoPlayer::State VideoPlayer::getState() {
 }
 
 void VideoPlayer::setFilename(QString &filename) {
-//    const char *name = filename.toUtf8().data();
+    //    const char *name = filename.toUtf8().data();
     const char *name = filename.toStdString().c_str();
     memcpy(_filename, name, strlen(name) + 1);
 }
@@ -113,7 +113,7 @@ bool VideoPlayer::isMute() {
 }
 
 #pragma mark - 私有方法
-void VideoPlayer::readFile() {
+void VideoPlayer::sreadFile() {
     // 返回结果
     int ret = 0;
 
@@ -133,18 +133,19 @@ void VideoPlayer::readFile() {
     _hasAudio = initAudioInfo() >= 0;
     // 初始化视频信息
     _hasVideo = initVideoInfo() >= 0;
+
     if (!_hasAudio && !_hasVideo) {
         fataError();
         return;
     }
-//    // 初始化音频信息
-//    initAudioInfo();
-//    // 初始化视频信息
-//    initVideoInfo();
-//    if (!_aStream && !_vStream) {
-//        fataError();
-//        return;
-//    }
+    //    // 初始化音频信息
+    //    initAudioInfo();
+    //    // 初始化视频信息
+    //    initVideoInfo();
+    //    if (!_aStream && !_vStream) {
+    //        fataError();
+    //        return;
+    //    }
 
     // 到此为止，初始化完毕
     emit initFinished(this);
@@ -189,6 +190,7 @@ void VideoPlayer::readFile() {
                 _aTime = 0;
                 _vTime = 0;
                 // 清空之前读取的数据包
+                // 当, Seek 了之后, 必须要清空原来的数据, 不然就会出现, 播放原来的数据结束后, 才能播放 Seek 所在位置的数据.
                 clearAudioPktList();
                 clearVideoPktList();
             }
@@ -199,7 +201,7 @@ void VideoPlayer::readFile() {
 
         if (vSize >= VIDEO_MAX_PKT_SIZE ||
                 aSize >= AUDIO_MAX_PKT_SIZE) {
-//            SDL_Delay(10);
+            //            SDL_Delay(10);
             continue;
         }
 

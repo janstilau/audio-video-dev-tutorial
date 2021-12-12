@@ -31,6 +31,8 @@ void AudioThread::run() {
     VideoDecodeSpec vOut;
     vOut.filename = "F:/res/out.yuv";
 
+    // 在线程的内部,去执行文件的解析, 转码的工作.
+    // 将, 输出的结构, 放在 audioOutput, videoOutput 这两个输出参数里面.
     Demuxer().demux("F:/res/in.mp4", aOut, vOut);
 
     qDebug() << aOut.sampleRate
