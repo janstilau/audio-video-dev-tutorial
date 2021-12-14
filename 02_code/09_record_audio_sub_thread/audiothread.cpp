@@ -40,6 +40,10 @@ extern "C" {
 #define FILEPATH "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/output/"
 #endif
 
+/*
+ * ffplay -ar 16000 -ac 1 -f s16le out.pcm
+ */
+
 AudioThread::AudioThread(QObject *parent) : QThread(parent) {
     // 当监听到线程结束时（finished），就调用deleteLater回收内存
     connect(this, &AudioThread::finished,

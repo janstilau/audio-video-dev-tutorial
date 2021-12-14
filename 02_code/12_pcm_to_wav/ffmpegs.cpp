@@ -2,10 +2,11 @@
 #include <QFile>
 #include <QDebug>
 
-FFmpegs::FFmpegs() {
+FFmpegs::FFmpegs() { }
 
-}
-
+/*
+ *
+ */
 void FFmpegs::pcm2wav(WAVHeader &header,
                       const char *pcmFilename,
                       const char *wavFilename) {

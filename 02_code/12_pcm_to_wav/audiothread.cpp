@@ -24,7 +24,7 @@ extern "C" {
 #else
     #define FMT_NAME "avfoundation"
     #define DEVICE_NAME ":0"
-    #define FILEPATH "/Users/mj/Desktop/"
+    #define FILEPATH "/Users/liugq01/Work/Audio/"
 #endif
 
 AudioThread::AudioThread(QObject *parent) : QThread(parent) {
@@ -88,7 +88,7 @@ void AudioThread::run() {
     }
 
     // 打印一下录音设备的参数信息
-    // showSpec(ctx);
+     showSpec(ctx);
 
     // 文件名
     QString filename = FILEPATH;
