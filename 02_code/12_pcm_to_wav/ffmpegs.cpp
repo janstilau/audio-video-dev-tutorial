@@ -4,9 +4,6 @@
 
 FFmpegs::FFmpegs() { }
 
-/*
- *
- */
 void FFmpegs::pcm2wav(WAVHeader &header,
                       const char *pcmFilename,
                       const char *wavFilename) {

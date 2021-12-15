@@ -7,7 +7,7 @@
 /*
  * https://cloud.tencent.com/developer/article/1608832
  *
- * 慕课网李超.
+ *
 实际上，所有的音频播放都遵守着一个原则，就是当声卡将要播放的声音输出到扬声器时，它首先会通过回调函数，向你要它一部分声频数据，然后拿着这部分音频数据去播放。等播放完了，它会再向你要下一部分。
 
 至于要的数据的多少，什么时候向你要，这些都是由声卡决定的。对于我们上层应用来说，这些都是由底层 API 决定的。
@@ -38,8 +38,8 @@
 #define BUFFER_SIZE (SAMPLES * BYTES_PER_SAMPLE)
 
 typedef struct {
-    int len = 0;
-    int pullLen = 0;
+    int leftDataLength = 0;
+    int consumedLength = 0;
     Uint8 *data = nullptr;
 } AudioBuffer;
 
@@ -58,14 +58,17 @@ PlayThread::~PlayThread() {
     qDebug() << this << "析构了";
 }
 
+/*
+ *  这里的处理逻辑, 和 AudioQueue 里面的处理逻辑, 是完全一致的.
+ */
 // 等待音频设备回调(会回调多次)
 void pull_audio_data(void *userdata,
+                     // userdata, AudioBuffer 类型. 业务方定义的控制类.
                      // 需要往stream中填充PCM数据
                      Uint8 *stream,
                      // 希望填充的大小(samples * format * channels / 8)
                      int len
-                    ) {
-    qDebug() << "pull_audio_data" << len;
+                     ) {
 
     // 清空stream（静音处理）
     SDL_memset(stream, 0, len);
@@ -74,19 +77,19 @@ void pull_audio_data(void *userdata,
     AudioBuffer *buffer = (AudioBuffer *) userdata;
 
     // 文件数据还没准备好
-    if (buffer->len <= 0) return;
+    if (buffer->leftDataLength <= 0) return;
 
     // 取len、bufferLen的最小值（为了保证数据安全，防止指针越界）
-    buffer->pullLen = (len > buffer->len) ? buffer->len : len;
+    buffer->consumedLength = (len > buffer->leftDataLength) ? buffer->leftDataLength : len;
 
     // 填充数据
     SDL_MixAudio(stream,
                  buffer->data,
-                 buffer->pullLen,
+                 buffer->consumedLength,
                  SDL_MIX_MAXVOLUME);
 
-    buffer->data += buffer->pullLen;
-    buffer->len -= buffer->pullLen;
+    buffer->data += buffer->consumedLength;
+    buffer->leftDataLength -= buffer->consumedLength;
 }
 
 /*
@@ -105,7 +108,7 @@ void PlayThread::run() {
     SDL_AudioSpec spec;
     // 采样率
     spec.freq = SAMPLE_RATE;
-    // 采样格式（s16le）
+    // 采样格式（s16le）, 基本上, 采样格式, 就包含了位深的信息了.
     spec.format = SAMPLE_FORMAT;
     // 声道数
     spec.channels = CHANNELS;
@@ -143,14 +146,14 @@ void PlayThread::run() {
     Uint8 data[BUFFER_SIZE];
     while (!isInterruptionRequested()) {
         // 只要从文件中读取的音频数据，还没有填充完毕，就跳过
-        if (buffer.len > 0) continue;
+        if (buffer.leftDataLength > 0) continue;
 
-        buffer.len = file.read((char *) data, BUFFER_SIZE);
+        buffer.leftDataLength = file.read((char *) data, BUFFER_SIZE);
 
         // 文件数据已经读取完毕
-        if (buffer.len <= 0) {
+        if (buffer.leftDataLength <= 0) {
             // 剩余的样本数量
-            int samples = buffer.pullLen / BYTES_PER_SAMPLE;
+            int samples = buffer.consumedLength / BYTES_PER_SAMPLE;
             int ms = samples * 1000 / SAMPLE_RATE;
             SDL_Delay(ms);
             break;
