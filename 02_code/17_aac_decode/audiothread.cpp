@@ -22,9 +22,9 @@ AudioThread::~AudioThread() {
 
 void AudioThread::run() {
     AudioDecodeSpec out;
-    out.filename = "F:/res/out.pcm";
+    out.filename = "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/02_code/17_aac_decode/out.pcm";
 
-    FFmpegs::aacDecode("F:/res/in.aac", out);
+    FFmpegs::aacDecode("/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/02_code/17_aac_decode/in.aac", out);
 
     qDebug() << "采样率：" << out.sampleRate;
     qDebug() << "采样格式：" << av_get_sample_fmt_name(out.sampleFmt);

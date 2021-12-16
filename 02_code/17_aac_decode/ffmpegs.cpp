@@ -20,6 +20,7 @@ FFmpegs::FFmpegs() {
 
 }
 
+// 播放 ffplay -ar 44100 -ac 2 -f s16le out.pcm
 static int decode(AVCodecContext *ctx,
                   AVPacket *pkt,
                   AVFrame *frame,
@@ -42,10 +43,6 @@ static int decode(AVCodecContext *ctx,
             qDebug() << "avcodec_receive_frame error" << errbuf;
             return ret;
         }
-
-//        for (int i = 0; i < frame->channels; i++) {
-//            frame->data[i];
-//        }
 
         // 将解码后的数据写入文件
         outFile.write((char *) frame->data[0], frame->linesize[0]);
@@ -84,9 +81,10 @@ void FFmpegs::aacDecode(const char *inFilename,
     AVFrame *frame = nullptr;
 
     // 获取解码器
-    codec = avcodec_find_decoder_by_name("libfdk_aac");
+//    codec = avcodec_find_decoder_by_name("libfdk_aac");
+    codec = avcodec_find_decoder(AV_CODEC_ID_AAC);
     if (!codec) {
-        qDebug() << "decoder not found";
+        qDebug() << "decodesr not found";
         return;
     }
 

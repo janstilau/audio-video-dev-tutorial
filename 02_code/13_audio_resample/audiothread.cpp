@@ -29,14 +29,14 @@ void AudioThread::run() {
     // 44100_s16le_2 -> 48000_f32le_2 -> 48000_s32le_1 -> 44100_s16le_2
 
     ResampleAudioSpec ras1;
-    ras1.filename = "F:/44100_s16le_2.pcm";
-    ras1.sampleFmt = AV_SAMPLE_FMT_S16;
+    ras1.filename = "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/02_code/17_aac_decode/out.pcm";
+    ras1.sampleFmt = AV_SAMPLE_FMT_FLTP;
     ras1.sampleRate = 44100;
     ras1.chLayout = AV_CH_LAYOUT_STEREO;
 
     ResampleAudioSpec ras2;
-    ras2.filename = "F:/48000_f32le_1.pcm";
-    ras2.sampleFmt = AV_SAMPLE_FMT_FLT;
+    ras2.filename = "/Users/liugq01/QtCodeHub/audio-video-dev-tutorial/02_code/17_aac_decode/out2.pcm";
+    ras2.sampleFmt = AV_SAMPLE_FMT_S16;
     ras2.sampleRate = 48000;
     ras2.chLayout = AV_CH_LAYOUT_MONO;
 
@@ -50,6 +50,6 @@ void AudioThread::run() {
     ras4.filename = "F:/44100_s16le_2_new.pcm";
 
     FFmpegs::resampleAudio(ras1, ras2);
-    FFmpegs::resampleAudio(ras2, ras3);
-    FFmpegs::resampleAudio(ras3, ras4);
+//    FFmpegs::resampleAudio(ras2, ras3);
+//    FFmpegs::resampleAudio(ras3, ras4);
 }
