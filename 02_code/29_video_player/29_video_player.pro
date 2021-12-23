@@ -40,14 +40,17 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-FFMPEG_HOME = F:/Dev/msys64/usr/local/ffmpeg
+FFMPEG_HOME = /usr/local/Cellar/ffmpeg/4.4.1_3
+SDL_HOME =  /usr/local/Cellar/sdl2/2.0.18
 
 INCLUDEPATH += $${FFMPEG_HOME}/include
+INCLUDEPATH += $${SDL_HOME}/include
 
 LIBS += -L $${FFMPEG_HOME}/lib \
         -lavcodec \
         -lavformat \
         -lavutil \
-        -lSDL2 \
         -lswresample \
         -lswscale
+
+LIBS += /usr/local/Cellar/sdl2/2.0.18/lib/libSDL2.a

@@ -113,7 +113,7 @@ bool VideoPlayer::isMute() {
 }
 
 #pragma mark - 私有方法
-void VideoPlayer::sreadFile() {
+void VideoPlayer::readFile() {
     // 返回结果
     int ret = 0;
 
