@@ -31,14 +31,15 @@ static const CGFloat FONT_SIZE      = 17.0f;
 @implementation THFlashControl
 
 - (id)initWithFrame:(CGRect)frame {
-	self = [super initWithFrame:CGRectMake(0.0f, 0.0f, ICON_WIDTH + BUTTON_WIDTH, BUTTON_HEIGHT)];
-	if (self) {
+    self = [super initWithFrame:CGRectMake(0.0f, 0.0f, ICON_WIDTH + BUTTON_WIDTH, BUTTON_HEIGHT)];
+    if (self) {
         [self setupView];
-	}
-	return self;
+    }
+    return self;
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self setupView];
 }
 
@@ -59,30 +60,30 @@ static const CGFloat FONT_SIZE      = 17.0f;
 }
 
 - (NSArray *)buildLabels:(NSArray *)labelStrings {
-	CGFloat x = ICON_WIDTH;
+    CGFloat x = ICON_WIDTH;
     BOOL first = YES;
-	NSMutableArray *labels = [NSMutableArray array];
-	for (NSString *string in labelStrings) {
-		CGRect frame = CGRectMake(x, self.midY, BUTTON_WIDTH, BUTTON_HEIGHT);
-		UILabel *label = [[UILabel alloc] initWithFrame:frame];
-		label.text = string;
-		label.font = NORMAL_FONT;
-		label.textColor = [UIColor whiteColor];
-		label.backgroundColor = [UIColor clearColor];
+    NSMutableArray *labels = [NSMutableArray array];
+    for (NSString *string in labelStrings) {
+        CGRect frame = CGRectMake(x, self.midY, BUTTON_WIDTH, BUTTON_HEIGHT);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+        label.text = string;
+        label.font = NORMAL_FONT;
+        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor clearColor];
         label.textAlignment = first ? NSTextAlignmentLeft : NSTextAlignmentCenter;
         first = NO;
-		[self addSubview:label];
-		[labels addObject:label];
-		x += BUTTON_WIDTH;
-	}
+        [self addSubview:label];
+        [labels addObject:label];
+        x += BUTTON_WIDTH;
+    }
     return labels;
 }
 
 - (void)selectMode:(id)sender forEvent:(UIEvent *)event {
-
-	if (!self.expanded) {
-		[self performDelegateSelectorIfSupported:@selector(flashControlWillExpand)];
-		[UIView animateWithDuration:0.3 animations:^{
+    
+    if (!self.expanded) {
+        [self performDelegateSelectorIfSupported:@selector(flashControlWillExpand)];
+        [UIView animateWithDuration:0.3 animations:^{
             self.frameWidth = self.expandedWidth;
             for (NSUInteger i = 0; i < self.labels.count; i++) {
                 UILabel *label = self.labels[i];
@@ -93,20 +94,20 @@ static const CGFloat FONT_SIZE      = 17.0f;
                 }
             }
         } completion:^(BOOL finished) {
-			[self performDelegateSelectorIfSupported:@selector(flashControlDidExpand)];
-		}];
-	} else {
-
-		[self performDelegateSelectorIfSupported:@selector(flashControlWillCollapse)];
-
-		UITouch *touch = [[event allTouches] anyObject];
+            [self performDelegateSelectorIfSupported:@selector(flashControlDidExpand)];
+        }];
+    } else {
+        
+        [self performDelegateSelectorIfSupported:@selector(flashControlWillCollapse)];
+        
+        UITouch *touch = [[event allTouches] anyObject];
         for (NSUInteger i = 0; i < self.labels.count; i++) {
-
+            
             UILabel *label = self.labels[i];
-			CGPoint touchPoint = [touch locationInView:label];
-
+            CGPoint touchPoint = [touch locationInView:label];
+            
             if ([label pointInside:touchPoint withEvent:event]) {
-
+                
                 self.selectedIndex = i;
                 label.textAlignment = NSTextAlignmentLeft;
                 
@@ -123,24 +124,24 @@ static const CGFloat FONT_SIZE      = 17.0f;
                     }
                     self.frameWidth = self.defaultWidth;
                 } completion:^(BOOL finished) {
-					[self performDelegateSelectorIfSupported:@selector(flashControlDidCollapse)];
-				}];
+                    [self performDelegateSelectorIfSupported:@selector(flashControlDidCollapse)];
+                }];
                 break;
             }
         }
-	}
+    }
     self.expanded = !self.expanded;
 }
 
 - (void)performDelegateSelectorIfSupported:(SEL)sel {
-	if ([self.delegate respondsToSelector:sel]) {
-		[self.delegate performSelector:sel withObject:nil];
-	}
+    if ([self.delegate respondsToSelector:sel]) {
+        [self.delegate performSelector:sel withObject:nil];
+    }
 }
 
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
     _selectedIndex = selectedIndex;
-
+    
     // Remap to fit enum values
     NSInteger mode = selectedIndex;
     if (selectedIndex == 0) {
@@ -152,10 +153,10 @@ static const CGFloat FONT_SIZE      = 17.0f;
 }
 
 - (void)setSelectedMode:(NSInteger)selectedMode {
-	if (_selectedMode != selectedMode) {
-		_selectedMode = selectedMode;
-		[self sendActionsForControlEvents:UIControlEventValueChanged];
-	}
+    if (_selectedMode != selectedMode) {
+        _selectedMode = selectedMode;
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
 }
 
 @end

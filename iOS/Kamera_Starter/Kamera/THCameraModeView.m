@@ -3,11 +3,13 @@
 #import "UIView+THAdditions.h"
 #import <CoreText/CoreText.h>
 #import "THCaptureButton.h"
+#import "MCDebug.h"
 
 #define COMPONENT_MARGIN 20.0f
 #define BUTTON_SIZE CGSizeMake(68.0f, 68.0f)
 
 @interface THCameraModeView ()
+
 @property (strong, nonatomic) UIColor *foregroundColor;
 @property (strong, nonatomic) CATextLayer *videoTextLayer;
 @property (strong, nonatomic) CATextLayer *photoTextLayer;
@@ -16,6 +18,7 @@
 @property (nonatomic) BOOL maxLeft;
 @property (nonatomic) BOOL maxRight;
 @property (nonatomic) CGFloat videoStringWidth;
+
 @end
 
 @implementation THCameraModeView
@@ -36,6 +39,9 @@
     return self;
 }
 
+/*
+ 大部分的代码, 还是 View 的布局工作. 
+ */
 - (void)setupView {
     _maxRight = YES;
     self.cameraMode = THCameraModeVideo;
@@ -65,6 +71,10 @@
     leftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     [self addGestureRecognizer:rightRecognizer];
     [self addGestureRecognizer:leftRecognizer];
+    
+    [self.subviews enumerateObjectsUsingBlock:^(UIView *aSubView, NSUInteger idx, BOOL *stop) {
+        [aSubView addBorderLine];
+    }];
 }
 
 - (void)toggleSelected {
@@ -143,7 +153,7 @@
     CGContextSetFillColorWithColor(context, self.foregroundColor.CGColor);
     
     CGRect circleRect = CGRectMake(CGRectGetMidX(rect) - 4.0f, 2.0f, 6.0f, 6.0f);
-    CGContextFillEllipseInRect(context, circleRect);
+//    CGContextFillEllipseInRect(context, circleRect);
 }
 
 - (void)layoutSubviews {

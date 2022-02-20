@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAD4166527C231DA008F8D50 /* UIView+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD4166027C231DA008F8D50 /* UIView+Debug.m */; };
+		AAD4166627C231DA008F8D50 /* UIColor+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD4166127C231DA008F8D50 /* UIColor+Debug.m */; };
+		AAD4166927C2327F008F8D50 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD4166727C2327F008F8D50 /* UIView+YYAdd.m */; };
 		C402A684182AB0EA00CC7CB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C402A683182AB0EA00CC7CB1 /* Foundation.framework */; };
 		C402A686182AB0EA00CC7CB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C402A685182AB0EA00CC7CB1 /* CoreGraphics.framework */; };
 		C402A688182AB0EA00CC7CB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C402A687182AB0EA00CC7CB1 /* UIKit.framework */; };
@@ -35,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AAD4166027C231DA008F8D50 /* UIView+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Debug.m"; sourceTree = "<group>"; };
+		AAD4166127C231DA008F8D50 /* UIColor+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Debug.m"; sourceTree = "<group>"; };
+		AAD4166227C231DA008F8D50 /* UIView+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Debug.h"; sourceTree = "<group>"; };
+		AAD4166327C231DA008F8D50 /* UIColor+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Debug.h"; sourceTree = "<group>"; };
+		AAD4166427C231DA008F8D50 /* MCDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCDebug.h; sourceTree = "<group>"; };
+		AAD4166727C2327F008F8D50 /* UIView+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYAdd.m"; sourceTree = "<group>"; };
+		AAD4166827C2327F008F8D50 /* UIView+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYAdd.h"; sourceTree = "<group>"; };
 		C402A680182AB0EA00CC7CB1 /* Kamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C402A683182AB0EA00CC7CB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C402A685182AB0EA00CC7CB1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,6 +106,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AAD4165F27C231DA008F8D50 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				AAD4166827C2327F008F8D50 /* UIView+YYAdd.h */,
+				AAD4166727C2327F008F8D50 /* UIView+YYAdd.m */,
+				AAD4166027C231DA008F8D50 /* UIView+Debug.m */,
+				AAD4166127C231DA008F8D50 /* UIColor+Debug.m */,
+				AAD4166227C231DA008F8D50 /* UIView+Debug.h */,
+				AAD4166327C231DA008F8D50 /* UIColor+Debug.h */,
+				AAD4166427C231DA008F8D50 /* MCDebug.h */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		C402A677182AB0EA00CC7CB1 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +153,7 @@
 		C402A689182AB0EA00CC7CB1 /* Kamera */ = {
 			isa = PBXGroup;
 			children = (
+				AAD4165F27C231DA008F8D50 /* Debug */,
 				C402A6D1182AB21900CC7CB1 /* Categories */,
 				C402A6D0182AB1F800CC7CB1 /* Views */,
 				C402A6CF182AB1F200CC7CB1 /* Models */,
@@ -188,10 +213,10 @@
 				C402A6D9182AB27000CC7CB1 /* THStatusView.m */,
 				C402A6B8182AB10100CC7CB1 /* THPreviewView.h */,
 				C402A6B9182AB10100CC7CB1 /* THPreviewView.m */,
-				C43A85AE182B295700355AB8 /* THCameraView.h */,
-				C43A85AF182B295700355AB8 /* THCameraView.m */,
 				C43A85B1182B29AB00355AB8 /* THOverlayView.h */,
 				C43A85B2182B29AB00355AB8 /* THOverlayView.m */,
+				C43A85AE182B295700355AB8 /* THCameraView.h */,
+				C43A85AF182B295700355AB8 /* THCameraView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -240,7 +265,7 @@
 				ORGANIZATIONNAME = "Bob McCune";
 				TargetAttributes = {
 					C402A67F182AB0EA00CC7CB1 = {
-						DevelopmentTeam = 6N2KK62WZZ;
+						DevelopmentTeam = GAJJ4F72ZK;
 					};
 				};
 			};
@@ -249,6 +274,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -286,6 +312,7 @@
 				C402A6DC182AB27000CC7CB1 /* THCameraModeView.m in Sources */,
 				C402A6C0182AB10100CC7CB1 /* UIView+THAdditions.m in Sources */,
 				C402A6DA182AB27000CC7CB1 /* THFlashControl.m in Sources */,
+				AAD4166527C231DA008F8D50 /* UIView+Debug.m in Sources */,
 				C402A6C9182AB13E00CC7CB1 /* THAssetsLibrary.m in Sources */,
 				C43A85B0182B295700355AB8 /* THCameraView.m in Sources */,
 				C402A69A182AB0EA00CC7CB1 /* THViewController.m in Sources */,
@@ -295,6 +322,8 @@
 				C402A6DD182AB27000CC7CB1 /* THStatusView.m in Sources */,
 				C402A690182AB0EA00CC7CB1 /* main.m in Sources */,
 				C402A6BE182AB10100CC7CB1 /* THPreviewView.m in Sources */,
+				AAD4166927C2327F008F8D50 /* UIView+YYAdd.m in Sources */,
+				AAD4166627C231DA008F8D50 /* UIColor+Debug.m in Sources */,
 				C402A6C7182AB13E00CC7CB1 /* THCameraController.m in Sources */,
 				C43A85B3182B29AB00355AB8 /* THOverlayView.m in Sources */,
 			);
@@ -398,11 +427,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 6N2KK62WZZ;
+				DEVELOPMENT_TEAM = GAJJ4F72ZK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kamera/Kamera-Prefix.pch";
 				INFOPLIST_FILE = "Kamera/Kamera-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ee.liuyi1224;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ee.liuyi1224-yami";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
@@ -414,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 6N2KK62WZZ;
+				DEVELOPMENT_TEAM = HUW3H8NBU9;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kamera/Kamera-Prefix.pch";
 				INFOPLIST_FILE = "Kamera/Kamera-Info.plist";

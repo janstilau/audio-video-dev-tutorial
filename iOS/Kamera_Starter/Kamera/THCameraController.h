@@ -9,11 +9,17 @@ extern NSString *const THThumbnailCreatedNotification;
 - (void)deviceConfigurationFailedWithError:(NSError *)error;
 - (void)mediaCaptureFailedWithError:(NSError *)error;
 - (void)assetLibraryWriteFailedWithError:(NSError *)error;
+
 @end
+
+
+// 这个类, 作为整个 Session 相关逻辑的控制类.
+// Controller 不一定是 ViewController.
 
 @interface THCameraController : NSObject
 
 @property (weak, nonatomic) id<THCameraControllerDelegate> delegate;
+// Readonly. Session 的生命周期, 由自己内部控制.
 @property (nonatomic, strong, readonly) AVCaptureSession *captureSession;
 
 

@@ -4,6 +4,7 @@
 @protocol THFlashControlDelegate <NSObject>
 
 @optional
+
 - (void)flashControlWillExpand;
 - (void)flashControlDidExpand;
 - (void)flashControlWillCollapse;
