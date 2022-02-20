@@ -258,8 +258,6 @@ NSString *const THThumbnailCreatedNotification = @"THThumbnailCreated";
     还可以让你控制设备的LED作为拍照的闪光灯或手电筒的使用
     
     每当修改摄像头设备时，一定要先测试修改动作是否能被设备支持。并不是所有的摄像头都支持所有功能，例如牵制摄像头就不支持对焦操作，因为它和目标距离一般在一臂之长的距离。但大部分后置摄像头是可以支持全尺寸对焦。尝试应用一个不被支持的动作，会导致异常崩溃。所以修改摄像头设备前，需要判断是否支持
- 
- 
  */
 
 
@@ -327,6 +325,7 @@ static const NSString *THCameraAdjustingExposureContext;
         if ([device lockForConfiguration:&error])
         {
             //配置期望值
+            // 曝光点就是整个照片以某个亮度为基准的点，这样拍出来的不会太白也不会太黑
             device.exposurePointOfInterest = point;
             device.exposureMode = exposureMode;
             
@@ -351,22 +350,36 @@ static const NSString *THCameraAdjustingExposureContext;
     
 }
 
+/*
+ adjustingExposure
+ Indicates whether the device is currently adjusting its exposure setting.
+ 
+ 曝光点, 就是将某个点, 作为整个画面的亮度基准点.
+ 在上面, 进行了
+ device.exposurePointOfInterest = point;
+ device.exposureMode = exposureMode;
+ 曝光点设置之后, 然后设置曝光模式, 是持续调整曝光.
+ 
+ 在设置之后, 应该监听持续调整的结果, 在 adjustingExposure 为 false 之后, 也就是机器调整曝光点结束了.
+ 这个时候, 重新锁定曝光点.
+ 这里, 使用 KVO 监听的原因就在于此了. 
+ */
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
-
     //判断context（上下文）是否为THCameraAdjustingExposureContext
     if (context == &THCameraAdjustingExposureContext) {
-        
         //获取device
         AVCaptureDevice *device = (AVCaptureDevice *)object;
-        
         //判断设备是否不再调整曝光等级，确认设备的exposureMode是否可以设置为AVCaptureExposureModeLocked
-        if(!device.isAdjustingExposure && [device isExposureModeSupported:AVCaptureExposureModeLocked])
+        if(!device.isAdjustingExposure &&
+           [device isExposureModeSupported:AVCaptureExposureModeLocked])
         {
             //移除作为adjustingExposure 的self，就不会得到后续变更的通知
+            // Indicates whether the device is currently adjusting its exposure setting.
             [object removeObserver:self forKeyPath:@"adjustingExposure" context:&THCameraAdjustingExposureContext];
+            
             
             //异步方式调回主队列，
             dispatch_async(dispatch_get_main_queue(), ^{
