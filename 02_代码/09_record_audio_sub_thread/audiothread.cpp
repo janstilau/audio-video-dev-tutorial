@@ -29,6 +29,7 @@ extern "C" {
 
 AudioThread::AudioThread(QObject *parent) : QThread(parent) {
     // 当监听到线程结束时（finished），就调用deleteLater回收内存
+    // finished, 会在线程的 main 函数运行完毕之后执行, 这个时候, 线程的启动函数运行要完毕了, 使用 deleteLater, 将线程的生命周期回收.
     connect(this, &AudioThread::finished,
             this, &AudioThread::deleteLater);
 }

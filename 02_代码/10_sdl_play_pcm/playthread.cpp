@@ -8,6 +8,7 @@
 #define SAMPLE_RATE 44100
 #define SAMPLE_SIZE 16
 #define CHANNELS 2
+
 // 音频缓冲区的样本数量
 #define SAMPLES 1024
 // 每个样本占用多少个字节
@@ -33,7 +34,8 @@ PlayThread::~PlayThread() {
 int bufferLen;
 char *bufferData;
 
-// 等待音频设备回调(会回调多次)
+//这个处理策略, 比较统一, 在 iOS, MACOS 系统也是这样的一个策略.
+// 使用一个回调函数, 进行内存区域内容的填充, 操作系统会定期调用该函数, 从 stream 里面读取即将进行播放的数据, 交给声卡的驱动程序.
 void pull_audio_data(void *userdata,
                      // 需要往stream中填充PCM数据
                      Uint8 *stream,
@@ -41,6 +43,7 @@ void pull_audio_data(void *userdata,
                      int len
                     ) {
     // 清空stream（静音处理）
+    // 从这里来看, 消耗数据被没有置空操作, 所以业务回调里面, 主动完成了置空处理.
     SDL_memset(stream, 0, len);
 
     // 文件数据还没准备好
@@ -77,7 +80,7 @@ void PlayThread::run() {
     spec.channels = CHANNELS;
     // 音频缓冲区的样本数量（这个值必须是2的幂）
     spec.samples = 1024;
-    // 回调
+    // 回调.
     spec.callback = pull_audio_data;
     spec.userdata = 100;
 
@@ -104,6 +107,8 @@ void PlayThread::run() {
     SDL_PauseAudio(0);
 
     // 存放从文件中读取的数据
+    // 我这里就很奇怪, 为什么不把文件读取,放到回调函数的内部. 非常奇怪, 要在这里完成数据的读取. 然后在回到函数里面做消耗.
+    //
     char data[BUFFER_SIZE];
     while (!isInterruptionRequested()) {
         // 只要从文件中读取的音频数据，还没有填充完毕，就跳过

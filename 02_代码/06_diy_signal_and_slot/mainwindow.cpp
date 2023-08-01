@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QPushButton>
 
+//
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) {
     QPushButton *btn = new QPushButton;
@@ -23,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 //    connect(sender, &Sender::exit, [](int n1, int n2) {
 //           qDebug() << "Lambda" << n1 << n2;
 //    });
+
 //    emit sender->exit(10, 20);
 //    connect(sender, &Sender::exit,
 //            receiver, &Receiver::handleExit);

@@ -44,9 +44,8 @@ void MainWindow::on_audioButton_clicked() {
 
     qDebug() << "on_audioButton_clicked" << QThread::currentThread();
 
-    return;
     // 获取输入格式对象
-    AVInputFormat *fmt = av_find_input_format(FMT_NAME);
+    const AVInputFormat *fmt = av_find_input_format(FMT_NAME);
     if (!fmt) {
         qDebug() << "获取输入格式对象失败" << FMT_NAME;
         return;
@@ -55,6 +54,7 @@ void MainWindow::on_audioButton_clicked() {
     // 格式上下文（将来可以利用上下文操作设备）
     AVFormatContext *ctx = nullptr;
     // 打开设备
+    //
     int ret = avformat_open_input(&ctx, DEVICE_NAME, fmt, nullptr);
     if (ret < 0) {
         char errbuf[1024];
@@ -81,6 +81,7 @@ void MainWindow::on_audioButton_clicked() {
 
     // 数据包
     AVPacket pkt;
+
     // 不断采集数据
     while (count-- > 0 && av_read_frame(ctx, &pkt) == 0) {
         // 将数据写入文件

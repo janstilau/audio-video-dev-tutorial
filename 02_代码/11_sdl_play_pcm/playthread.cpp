@@ -29,7 +29,6 @@ typedef struct {
 PlayThread::PlayThread(QObject *parent) : QThread(parent) {
     connect(this, &PlayThread::finished,
             this, &PlayThread::deleteLater);
-
 }
 
 PlayThread::~PlayThread() {

@@ -18,6 +18,7 @@ void FFmpegs::pcm2wav(WAVHeader &header,
         qDebug() << "文件打开失败" << pcmFilename;
         return;
     }
+    // 通过 QFile, 可以直接拿到最终的文件大小. 这样在进行转化的时候, 文件头信息就可以直接确定了.
     header.dataChunkDataSize = pcmFile.size();
     header.riffChunkDataSize = header.dataChunkDataSize
                                + sizeof (WAVHeader)

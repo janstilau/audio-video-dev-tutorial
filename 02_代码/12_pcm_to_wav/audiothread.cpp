@@ -142,12 +142,17 @@ void AudioThread::run() {
 
     // pcm转wav文件
     WAVHeader header;
+
+    // 对于 PCM 来说, 最重要的也就是采样率,  采样格式, 声道数.
+    // 这些确定了之后, 就可以完成文件头的存储了.
     header.sampleRate = params->sample_rate;
     header.bitsPerSample = av_get_bits_per_sample(params->codec_id);
     header.numChannels = params->channels;
     if (params->codec_id >= AV_CODEC_ID_PCM_F32BE) {
         header.audioFormat = AUDIO_FORMAT_FLOAT;
     }
+
+
     FFmpegs::pcm2wav(header,
                      filename.toUtf8().data(),
                      wavFilename.toUtf8().data());
