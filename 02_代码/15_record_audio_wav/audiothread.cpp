@@ -139,6 +139,9 @@ void AudioThread::run() {
 
     // 写入dataChunkDataSize
 //    header.dataChunkDataSize = size - sizeof (WAVHeader);
+
+    // 相比较原来必须录完之后, 将整个音频文件重新输出一遍, 现在的版本只有一个文件.
+    // 在录制结束之后, 使用 File Seek 的功能, 到达对应的文件地址,进行相关数据的修改.
     file.seek(sizeof (WAVHeader) - sizeof (header.dataChunkDataSize));
     file.write((char *) &header.dataChunkDataSize, sizeof (header.dataChunkDataSize));
 

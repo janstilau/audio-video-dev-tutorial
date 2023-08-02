@@ -41,6 +41,7 @@ AudioThread::~AudioThread() {
     // 安全退出
     quit();
     wait();
+
     qDebug() << this << "析构（内存被回收）";
 }
 
@@ -63,6 +64,8 @@ void showSpec(AVFormatContext *ctx) {
     qDebug() << av_get_bits_per_sample(params->codec_id);
 }
 
+
+// 这个类, 还是原来的录音实现. 完成音频的录制工作.将数据传递到了
 // 当线程启动的时候（start），就会自动调用run函数
 // run函数中的代码是在子线程中执行的
 // 耗时操作应该放在run函数中
@@ -110,6 +113,8 @@ void AudioThread::run() {
 
     // 数据包
     AVPacket pkt;
+    // isInterruptionRequested 的改变, 是主线程的按钮点击操作中的.
+    // 本身 av_read_frame 是一个阻塞函数, 所以需要使用一个子线程, 来完成真正的录制工作.
     while (!isInterruptionRequested()) {
         // 不断采集数据
         ret = av_read_frame(ctx, &pkt);
@@ -143,16 +148,17 @@ void AudioThread::run() {
     // pcm转wav文件
     WAVHeader header;
 
-    // 对于 PCM 来说, 最重要的也就是采样率,  采样格式, 声道数.
+    // 对于 PCM 来说, 最重要的也就是采样率, 采样格式, 声道数.
     // 这些确定了之后, 就可以完成文件头的存储了.
     header.sampleRate = params->sample_rate;
     header.bitsPerSample = av_get_bits_per_sample(params->codec_id);
     header.numChannels = params->channels;
+    //
     if (params->codec_id >= AV_CODEC_ID_PCM_F32BE) {
         header.audioFormat = AUDIO_FORMAT_FLOAT;
     }
 
-
+    // 在录制完毕之后, 才完成了转换的工作. 所以其实是文件再次输出了.
     FFmpegs::pcm2wav(header,
                      filename.toUtf8().data(),
                      wavFilename.toUtf8().data());

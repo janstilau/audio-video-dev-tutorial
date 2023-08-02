@@ -53,6 +53,8 @@ void pull_audio_data(void *userdata,
     len = (len > bufferLen) ? bufferLen : len;
 
     // 填充数据
+    // 使用 SDL_MixAudio, 将 bufferData 里面的内容, 填充到了 stream 中.
+    // 然后驱动程序会读取 stream 里面的数据. 进行真正的音频播放
     SDL_MixAudio(stream, (Uint8 *) bufferData, len, SDL_MIX_MAXVOLUME);
     bufferData += len;
     bufferLen -= len;
@@ -63,6 +65,7 @@ SDL播放音频有2种模式：
 Push（推）：【程序】主动推送数据给【音频设备】
 Pull（拉）：【音频设备】主动向【程序】拉取数据
 */
+// 真正的 Thread 的启动函数, 会调用到这里.
 void PlayThread::run() {
     // 初始化Audio子系统
     if (SDL_Init(SDL_INIT_AUDIO)) {
@@ -80,6 +83,7 @@ void PlayThread::run() {
     spec.channels = CHANNELS;
     // 音频缓冲区的样本数量（这个值必须是2的幂）
     spec.samples = 1024;
+
     // 回调.
     spec.callback = pull_audio_data;
     spec.userdata = 100;

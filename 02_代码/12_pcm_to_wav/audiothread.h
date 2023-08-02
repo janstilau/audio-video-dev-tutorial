@@ -3,6 +3,7 @@
 
 #include <QThread>
 
+// 在 Qt 里面, QThread 和 iOS 的 NSThread 没有太大的区别, 都是使用对象的方式, 完成了线程的创建工作.
 class AudioThread : public QThread {
     Q_OBJECT
 private:

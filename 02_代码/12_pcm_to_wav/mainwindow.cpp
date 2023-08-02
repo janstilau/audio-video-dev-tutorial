@@ -28,6 +28,8 @@ void MainWindow::on_audioButton_clicked() {
     } else { // 点击了“结束录音”
         // 结束线程
 //        _audioThread->setStop(true);
+        // 当点击了结束录音, thread 的标记就发生了变化.
+        // 在 run 的内部, 一直根据这个标记在完成自己的逻辑.
         _audioThread->requestInterruption();
         _audioThread = nullptr;
 

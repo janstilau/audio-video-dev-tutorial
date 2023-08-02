@@ -5,6 +5,7 @@ extern "C" {
 #include <libavformat/avformat.h>
 }
 
+// 相比较 采样率, 采样格式, 声道, 增加了一个文件路径的信息.
 typedef struct {
     const char *filename;
     int sampleRate;

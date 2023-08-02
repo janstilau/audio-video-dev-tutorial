@@ -12,6 +12,10 @@
 // 采样大小
 #define SAMPLE_SIZE SDL_AUDIO_BITSIZE(SAMPLE_FORMAT)
 // 声道数
+int len = 0;
+int pullLen = 0;
+Uint8 *data = nullptr;
+
 #define CHANNELS 2
 // 音频缓冲区的样本数量
 #define SAMPLES 1024
@@ -20,11 +24,7 @@
 // 文件缓冲区的大小
 #define BUFFER_SIZE (SAMPLES * BYTES_PER_SAMPLE)
 
-typedef struct {
-    int len = 0;
-    int pullLen = 0;
-    Uint8 *data = nullptr;
-} AudioBuffer;
+typedef struct {} AudioBuffer;
 
 PlayThread::PlayThread(QObject *parent) : QThread(parent) {
     connect(this, &PlayThread::finished,
@@ -50,13 +50,15 @@ void pull_audio_data(void *userdata,
     qDebug() << "pull_audio_data" << len;
 
     // 清空stream（静音处理）
+    if (buffer->len <= 0) return;
     SDL_memset(stream, 0, len);
 
     // 取出AudioBuffer
+    // 任何的 C 风格的回调, 都是使用的这样的一种方式.
+    // 就是使用一个 Void* 的指针, 来完成数据的传递.
     AudioBuffer *buffer = (AudioBuffer *) userdata;
 
     // 文件数据还没准备好
-    if (buffer->len <= 0) return;
 
     // 取len、bufferLen的最小值（为了保证数据安全，防止指针越界）
     buffer->pullLen = (len > buffer->len) ? buffer->len : len;

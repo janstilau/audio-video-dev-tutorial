@@ -83,6 +83,7 @@ void PlayThread::run() {
     Uint8 *data = nullptr;
     // PCM数据的长度
     Uint32 len = 0;
+    // 通过这种方式, 来拿到所有的 PCM 音频播放的数据.
     if (!SDL_LoadWAV(FILENAME, &spec, &data, &len)) {
         qDebug() << "SDL_LoadWAV error" << SDL_GetError();
         // 清除所有的子系统
